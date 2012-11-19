@@ -6,14 +6,16 @@ development:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
       database: series_jump_development
+      uri: <%= ENV['MONGOHQ_URL'] %>
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       hosts:
         - localhost:27017
       options:
+
         # Change whether the session persists in safe mode by default.
         # (default: false)
-        # safe: false
+         safe: true
 
         # Change the default consistency model to :eventual or :strong.
         # :eventual will send reads to secondaries, :strong sends everything
@@ -59,7 +61,7 @@ development:
 
     # Skip the database version check, used when connecting to a db without
     # admin access. (default: false)
-    # skip_version_check: false
+     skip_version_check: true
 
     # User Active Support's time zone in conversions. (default: true)
     # use_activesupport_time_zone: true
