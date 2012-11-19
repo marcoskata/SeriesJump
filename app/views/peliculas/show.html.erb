@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @pelicula.id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @pelicula.nombre %>
+</p>
+
+<p>
+  <b>Sinopsis:</b>
+  <%= @pelicula.sinopsis %>
+</p>
+
+<p>
+  <b>Saga:</b>
+  <%= @pelicula.saga %>
+</p>
+
+<p>
+  <b>Trailers:</b>
+  <%= @pelicula.trailers %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @pelicula.fecha %>
+</p>
+
+<p>
+  <b>Comentarios:</b>
+  <%= @pelicula.comentarios %>
+</p>
+
+<p>
+  <b>Etiquetas:</b>
+  <%= @pelicula.etiquetas %>
+</p>
+
+<p>
+  <b>Director:</b>
+  <%= @pelicula.director %>
+</p>
+
+<p>
+  <b>Guionista:</b>
+  <%= @pelicula.guionista %>
+</p>
+
+<p>
+  <b>Productores:</b>
+  <%= @pelicula.productores %>
+</p>
+
+
+<%= link_to 'Edit', edit_pelicula_path(@pelicula) %> |
+<%= link_to 'Back', peliculas_path %>

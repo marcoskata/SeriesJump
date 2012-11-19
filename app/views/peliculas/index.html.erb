@@ -1,0 +1,43 @@
+<h1>Listing peliculas</h1>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Sinopsis</th>
+    <th>Saga</th>
+    <th>Trailers</th>
+    <th>Fecha</th>
+    <th>Comentarios</th>
+    <th>Etiquetas</th>
+    <th>Director</th>
+    <th>Guionista</th>
+    <th>Productores</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @peliculas.each do |pelicula| %>
+  <tr>
+    <td><%= pelicula.id %></td>
+    <td><%= pelicula.nombre %></td>
+    <td><%= pelicula.sinopsis %></td>
+    <td><%= pelicula.saga %></td>
+    <td><%= pelicula.trailers %></td>
+    <td><%= pelicula.fecha %></td>
+    <td><%= pelicula.comentarios %></td>
+    <td><%= pelicula.etiquetas %></td>
+    <td><%= pelicula.director %></td>
+    <td><%= pelicula.guionista %></td>
+    <td><%= pelicula.productores %></td>
+    <td><%= link_to 'Show', pelicula %></td>
+    <td><%= link_to 'Edit', edit_pelicula_path(pelicula) %></td>
+    <td><%= link_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pelicula', new_pelicula_path %>

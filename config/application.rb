@@ -1,5 +1,23 @@
 require File.expand_path('../boot', __FILE__)
+# MongoHQ Setup
 
+require 'uri'
+
+if ENV["MONGOHQ_URL"]
+
+mongo_uri = URI.parse(ENV["MONGOHQ_URL"])
+
+ENV["MONGOID_HOST"] = mongo_uri.host
+
+ENV["MONGOID_PORT"] = mongo_uri.port.to_s
+
+ENV["MONGOID_USERNAME"] = mongo_uri.user
+
+ENV["MONGOID_PASSWORD"] = mongo_uri.password
+
+ENV["MONGOID_DATABASE"] = mongo_uri.path.gsub("/", "")
+
+end
 # Pick the frameworks you want:
 # require "active_record/railtie"
 require "action_controller/railtie"
@@ -46,9 +64,6 @@ module SeriesJump
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
-
-    # Enable escaping HTML in JSON.
-    config.active_support.escape_html_entities_in_json = true
 
     # Use SQL instead of Active Record's schema dumper when creating the database.
     # This is necessary if your schema can't be completely dumped by the schema dumper,

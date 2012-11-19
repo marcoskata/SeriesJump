@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Id:</b>
+  <%= @series.id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @series.nombre %>
+</p>
+
+<p>
+  <b>Sinopsis:</b>
+  <%= @series.sinopsis %>
+</p>
+
+<p>
+  <b>Temporada:</b>
+  <%= @series.temporada %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @series.fecha %>
+</p>
+
+<p>
+  <b>Comentarios:</b>
+  <%= @series.comentarios %>
+</p>
+
+<p>
+  <b>Etiquetas:</b>
+  <%= @series.etiquetas %>
+</p>
+
+<p>
+  <b>Director:</b>
+  <%= @series.director %>
+</p>
+
+<p>
+  <b>Guionista:</b>
+  <%= @series.guionista %>
+</p>
+
+<p>
+  <b>Productores:</b>
+  <%= @series.productores %>
+</p>
+
+
+<%= link_to 'Edit', edit_series_path(@series) %> |
+<%= link_to 'Back', series_index_path %>
