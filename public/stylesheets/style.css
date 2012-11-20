@@ -37,3 +37,23 @@ padding-left: 30px;
 -webkit-border-radius:10px;
 
 }
+
+@import url(http://fonts.googleapis.com/css?family=Trochut);
+/*!
+ * Bootstrap v2.2.1
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
+nav {
+
+font-family: Trochut;
+  font-size: 14px;
+  line-height: 20px;
+  color: #a4bfbd;
+  background-color: #588c87;
+}
