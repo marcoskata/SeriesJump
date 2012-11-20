@@ -22,7 +22,6 @@
 					<% else %>
 						<li>  <%= link_to('Login_twitter', signin_path)  %></li>
 						<li> <%= link_to('Login_facebook', signin1_path)  %></li>
-						<li> <%= link_to('Login_google', signin2_path)  %></li>
 					<% end %>
 					
              		 <li class="active"><a href="#">Home</a></li>

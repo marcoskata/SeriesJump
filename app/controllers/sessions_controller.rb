@@ -25,6 +25,12 @@ class SessionsController < ApplicationController
      redirect_to '/auth/facebook'
   end
   
+
+  def newotherother
+     redirect_to '/auth/google'
+  end
+
+
   def failure
      redirect_to root_url, :alert => "Authentication error: #{params[:message].humanize}"
   end

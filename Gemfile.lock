@@ -124,6 +124,10 @@ GEM
       rack
     omniauth-facebook (1.4.1)
       omniauth-oauth2 (~> 1.1.0)
+    omniauth-google (1.0.2)
+      multi_json
+      omniauth (~> 1.0)
+      omniauth-oauth
     omniauth-oauth (1.0.1)
       oauth
       omniauth (~> 1.0)
@@ -229,6 +233,7 @@ DEPENDENCIES
   mongoid-rspec (>= 1.4.6)
   omniauth (>= 1.1.1)
   omniauth-facebook
+  omniauth-google
   omniauth-twitter
   quiet_assets (>= 1.0.1)
   rails (= 3.2.0)
