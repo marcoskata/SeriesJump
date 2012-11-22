@@ -25,7 +25,14 @@ body {
 
 
 h2 {
-	font-family: font-family: 'Lobster Two';
+	font-family: 'Lobster Two';
+
+
+}
+
+#Jump h1{
+		font-size: 4px;
+		font-family: 'Lobster';
 
 }
 
@@ -37,7 +44,7 @@ padding-left: 30px;
 
 }
 
-@import url(http://fonts.googleapis.com/css?family=Trochut);
+@import url(http://fonts.googleapis.com/css?family=Lobster);
 /*!
  * Bootstrap v2.2.1
  *
