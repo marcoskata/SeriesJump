@@ -25,14 +25,7 @@ body {
 
 
 h2 {
-	font-family: 'Lobster Two';
-
-
-}
-
-#Jump h1{
-		font-size: 4px;
-		font-family: 'Lobster';
+	font-family: 'Lobster Two', cursive;
 
 }
 
@@ -44,7 +37,7 @@ padding-left: 30px;
 
 }
 
-@import url(http://fonts.googleapis.com/css?family=Lobster);
+@import url(http://fonts.googleapis.com/css?family=Trochut);
 /*!
  * Bootstrap v2.2.1
  *
@@ -62,17 +55,4 @@ font-family: Trochut;
   line-height: 20px;
   color: #a4bfbd;
   background-color: #588c87;
-}
-
-@media screen and (max-width: 840px){
-	.sp-slideshow { height: 345px; }
-}
-@media screen and (max-width: 680px){
-	.sp-slideshow { height: 285px; }
-}
-@media screen and (max-width: 560px){
-	.sp-slideshow { height: 235px; }
-}
-@media screen and (max-width: 320px){
-	.sp-slideshow { height: 158px; }
 }
