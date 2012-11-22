@@ -2,13 +2,32 @@
 <html>
 <head>
   <title>SeriesJump</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "/public/stylesheets/bootstrap/css/bootstrap", :media => "screen" %>	
+  stylesheet_link_tag "//fonts.googleapis.com/css?family=Lobster|Lobster+Two"
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <%= render 'layouts/stylesheets' %>  
 </head>
 <body>
-
-<%= yield %>
-
+	
+	<%= render 'layouts/header' %>
+	<div class="container">
+ 		
+		<%= yield %>
+  		<%= render 'layouts/footer' %>
+	</div>
+	
 </body>
+</html>
+
+<!DOCTYPE html>
+<html>
+	<head>
+  		<title>SeriesJump</title>
+
+  		
+	</head>
+	<body>
+    	
+	</body>
 </html>
