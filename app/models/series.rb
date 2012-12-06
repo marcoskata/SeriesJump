@@ -10,4 +10,5 @@ class Series
   field :director, type: String
   field :guionista, type: String
   field :productores, type: String
+  field :caratula, type: String
 end
