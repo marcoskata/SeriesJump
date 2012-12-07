@@ -1,0 +1,73 @@
+<% flash.each do |name, msg| %>
+	<% if msg.is_a?(String) %>
+    	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+<% end %>
+
+
+<% if user_signed_in? %>
+
+	<div class="row-fluid">  
+       	<div class="span3">  
+       		<div class="well sidebar-nav">  
+           		<ul class="nav nav-list">  
+           			<li class="nav-header">Nuestros Servicios</li>  
+		            <li><a href="/series">Series</a></li>  
+		            <li><a href="/peliculas">Peliculas</a></li>  
+		            <li><a href="/series">Lalala</a></li>  
+		            <li><a href="/peliculas">lalala</a></li>  
+		            <li class="nav-header">&Uacuteltimas Novedades</li>
+					<li><a href="/series">Series</a></li>  
+		            <li><a href="/peliculas">Pel&iacuteculas</a></li>  
+		            <li><a href="/usuarios">Usuarios</a></li>  
+		            <li><a href="/peliculas">lalala</a></li>  
+           		</ul>  
+       		</div><!--/.well -->  
+      	</div><!--/span-->  
+       
+		<div class="span9">  
+          <div class="row-fluid">  
+            <div class="span4">  
+				<h2>Pelis</h2> 
+				<img id="img_init" src="http://lorempixel.com/150/190/sports">			  
+				<p> Las mejores pelis del mundo mundial y mucho m&aacutes! </p>  
+				<p><a class="btn btn-success btn-large" href="/peliculas"> Mira algunas de las que tenemos</a></p>  
+            </div><!--/span-->  
+            <div class="span4">  
+				<h2>Series</h2>  
+				<img id="img_init" src="http://lorempixel.com/150/190/abstract">
+				<p> Las mejores series del mundo mundial y mucho m&aacutes! </p>  
+				<p><a class="btn btn-success btn-large" href="/series">Mira algunas de las que tenemos </a></p>  
+            </div><!--/span-->  
+            <div class="span4">  
+				<h2>Cortos</h2>  
+				<img id="img_init" src="http://lorempixel.com/150/190/food">
+				<p>Los mejores cortos del mundo mundial y mucho m&aacutes! </p>  
+				<p><a class="btn btn-success btn-large" href="/series">Mira algunos de los que tenemos</a></p>  
+            </div><!--/span-->  
+          </div><!--/row-->  
+
+
+
+<% else %>
+	<div class="span12">  
+    	<div class="row-fluid">  
+        	<div class="span10">  
+        		<h1> Disfruta de las mejores Series y Pelis! <h1>
+        		<h2> Entra ya desde cualquier red social </h2>	
+        		<img src='/img/cloud.png' alt="lala" width="300">
+          	</div><!--/span-->  
+  			<div class="span10">  
+        	
+  				<%= link_to( image_tag('/img/logo_t.png'), signin_path)  %>
+  				<%= link_to(image_tag('/img/logo_f.png'), signin1_path)  %>
+  				<%= link_to(image_tag('/img/logo_g.png'), signin2_path)  %>
+  	
+			</div><!--/span-->  
+         </div><!--/row-->  
+	</div><!--/span-->  
+        
+		
+<% end %>
+
+

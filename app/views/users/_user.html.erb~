@@ -1,0 +1,6 @@
+<li>
+  <%= link_to user.name, user %>
+  <% if current_user.admin? %>
+    | <td><%= button_to 'Destroy', user, confirm: 'Are you sure?', method: :delete %></td>
+  <% end %>
+</li>

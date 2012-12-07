@@ -1,0 +1,19 @@
+development:
+  sessions:
+    default:
+      uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
+      options:
+        consistency: :strong
+test:
+  sessions:
+    default:
+      uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
+      options:
+        consistency: :strong
+production:
+  sessions:
+    default:
+      uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
+      options:
+        skip_version_check: true
+        safe: true

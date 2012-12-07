@@ -1,0 +1,13 @@
+<% if user_signed_in? %>
+  <li>
+  Logged in as <%= current_user.name %>
+  </li>
+  <li>
+  <%= link_to('Logout', signout_path) %>        
+  </li>
+<% else %>
+  <li>
+  <%= link_to('Login_twitter', signin_path)  %>
+  <%= link_to('Login_facebook', signin1_path)  %>
+  </li>
+<% end %>

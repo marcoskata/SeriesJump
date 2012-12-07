@@ -1,0 +1,39 @@
+/* Css Personalizado */
+
+body {  
+	padding-top: 60px;  
+	padding-bottom: 40px;  
+	font-family: Lobster;
+    min-height: 740px;
+    
+	background-color: #eee; 
+	background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+							 color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+							color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+							to(transparent)); /* Old webkit syntax */
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+							transparent 75%, transparent); /* New webkit syntax */					
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+							transparent 75%, transparent); /* Firefox */
+	background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+							transparent 75%, transparent); /* Opera */
+	background-size: 16px 16px;
+}  
+
+
+h1 {
+	font-family: 'Molle';
+	src: ("http://fonts.googleapis.com/css?family=Molle:400italic");
+
+}
+
+#img_init {
+
+padding-left: 30px;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+
+}

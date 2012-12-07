@@ -1,0 +1,78 @@
+/* Css Personalizado */
+
+body {  
+	padding-top: 60px;  
+	padding-bottom: 40px;  
+	font-family: 'Lobster', 'PT Sans', sans-serif;
+    min-height: 740px;
+    
+	background-color: #eee; 
+	background-image: -webkit-gradient(linear, 0 100%, 100% 0, color-stop(.25, rgba(255, 255, 255, .2)), color-stop(.25, transparent),
+							 color-stop(.5, transparent), color-stop(.5, rgba(255, 255, 255, .2)),
+							color-stop(.75, rgba(255, 255, 255, .2)), color-stop(.75, transparent),
+							to(transparent)); /* Old webkit syntax */
+	background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+							transparent 75%, transparent); /* New webkit syntax */					
+	background-image: -moz-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+							transparent 75%, transparent); /* Firefox */
+	background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%,
+							transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%,
+							transparent 75%, transparent); /* Opera */
+	background-size: 16px 16px;
+}  
+
+
+h2 {
+	font-family: 'Lobster';
+
+
+}
+
+#Jump h1{
+		font-size: 4px;
+		font-family: 'Lobster';
+
+}
+
+#img_init {
+
+padding-left: 30px;
+-moz-border-radius:10px;
+-webkit-border-radius:10px;
+
+}
+
+@import url(http://fonts.googleapis.com/css?family=Lobster);
+/*!
+ * Bootstrap v2.2.1
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
+nav {
+
+font-family: Trochut;
+  font-size: 14px;
+  line-height: 20px;
+  color: #a4bfbd;
+  background-color: #588c87;
+}
+
+@media screen and (max-width: 840px){
+	.sp-slideshow { height: 345px; }
+}
+@media screen and (max-width: 680px){
+	.sp-slideshow { height: 285px; }
+}
+@media screen and (max-width: 560px){
+	.sp-slideshow { height: 235px; }
+}
+@media screen and (max-width: 320px){
+	.sp-slideshow { height: 158px; }
+}
