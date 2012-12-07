@@ -34,7 +34,7 @@
     <td><img src="<%= pelicula.caratula %>" alt="Caratula Serie" height="42" width="42"></td>
     <td><%= link_to 'Show', pelicula %></td>
     <td><%= link_to 'Edit', edit_pelicula_path(pelicula) %></td>
-    <td><%= link_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

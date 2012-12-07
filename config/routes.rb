@@ -17,6 +17,7 @@ SeriesJump::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/privacy', to: 'static_pages#privacy'
   match '/terms', to: 'static_pages#terms'
+  match '/usuarios' => 'home#index'
   
   
 	match '/auth/:provider/callback' => 'sessions#create'

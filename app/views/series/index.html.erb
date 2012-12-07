@@ -32,7 +32,7 @@
     <td><img src="<%= series.caratula %>" alt="Caratula Serie" height="42" width="42"></td>
     <td><%= link_to 'Show', series %></td>
     <td><%= link_to 'Edit', edit_series_path(series) %></td>
-    <td><%= link_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

@@ -6,11 +6,10 @@ class User
   field :email, type: String
   field :peliculas, type: Array
   field :series, type: Array
-  field :follower_id, type: Array
-  field :following_id, type: Array
   field :foto, type: Object
   field :comentarios, type: String
-  attr_protected :provider, :uid, :name, :email
+  field :admin, type: Boolean, default: false
+  attr_protected :provider, :uid, :name, :email, :admin
 
   def self.create_with_omniauth(auth)
   create! do |user|

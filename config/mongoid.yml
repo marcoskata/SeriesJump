@@ -4,7 +4,6 @@ development:
       uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
       options:
         consistency: :strong
-  options:
 test:
   sessions:
     default:
