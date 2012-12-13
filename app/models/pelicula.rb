@@ -12,4 +12,5 @@ class Pelicula
   field :guionista, type: String
   field :productores, type: String
   field :caratula, type: String
+  field :url, type: Array
 end

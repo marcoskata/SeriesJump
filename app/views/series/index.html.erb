@@ -13,6 +13,7 @@
     <th>Guionista</th>
     <th>Productores</th>
     <th>Caratula</th>
+	 <th>Url</th>
     <th></th>
     <th></th>
     <th></th>
@@ -30,6 +31,7 @@
     <td><%= series.guionista %></td>
     <td><%= series.productores %></td>
     <td><img src="<%= series.caratula %>" alt="Caratula Serie" height="42" width="42"></td>
+	 <td><%= series.url %></td>
     <td><%= link_to 'Show', series %></td>
     <td><%= link_to 'Edit', edit_series_path(series) %></td>
     <td><%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %></td>
