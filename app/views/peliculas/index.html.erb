@@ -1,45 +1,27 @@
 <h1>Listing peliculas</h1>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Nombre</th>
-    <th>Sinopsis</th>
-    <th>Saga</th>
-    <th>Trailers</th>
-    <th>Fecha</th>
-    <th>Comentarios</th>
-    <th>Etiquetas</th>
-    <th>Director</th>
-    <th>Guionista</th>
-    <th>Productores</th>
-    <th>Caratulas</th>
-	 <th>Url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @peliculas.each do |pelicula| %>
-  <tr>
-    <td><%= pelicula.nombre %></td>
-    <td><%= pelicula.sinopsis %></td>
-    <td><%= pelicula.saga %></td>
-    <td><%= pelicula.trailers %></td>
-    <td><%= pelicula.fecha %></td>
-    <td><%= pelicula.comentarios %></td>
-    <td><%= pelicula.etiquetas %></td>
-    <td><%= pelicula.director %></td>
-    <td><%= pelicula.guionista %></td>
-    <td><%= pelicula.productores %></td>
-    <td><img src="<%= pelicula.caratula %>" alt="Caratula Serie" height="42" width="42"></td>
-	 <td><%= pelicula.url %></td>
-    <td><%= link_to 'Show', pelicula %></td>
-    <td><%= link_to 'Edit', edit_pelicula_path(pelicula) %></td>
-    <td><%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+
+   <div class="row-fluid" id="peli_list">
+  
+      <div class="span1">
+   		<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
+      </div>
+      <div class="span4">
+   		<h2><%= link_to pelicula.nombre, pelicula %></h2>
+   		<ul>
+   			<li>Saga : <%= pelicula.saga %> </li>
+   			<li>Trailer : <%= pelicula.trailers %></li>
+   		</ul>
+      </div>
+      <div class="span1 offset2">
+      	<%= link_to 'Show', pelicula %>
+    	<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
+    	<%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
+      </div>
+   </div>
 <% end %>
-</table>
+
 
 <br />
 
