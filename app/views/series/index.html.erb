@@ -1,44 +1,24 @@
 <h1>Listing series</h1>
 
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Nombre</th>
-    <th>Sinopsis</th>
-    <th>Temporada</th>
-    <th>Fecha</th>
-    <th>Comentarios</th>
-    <th>Etiquetas</th>
-    <th>Director</th>
-    <th>Guionista</th>
-    <th>Productores</th>
-    <th>Caratula</th>
-	 <th>Url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @series.each do |series| %>
-  <tr>
-    <td><%= series.nombre %></td>
-    <td><%= series.sinopsis %></td>
-    <td><%= series.temporada %></td>
-    <td><%= series.fecha %></td>
-    <td><%= series.comentarios %></td>
-    <td><%= series.etiquetas %></td>
-    <td><%= series.director %></td>
-    <td><%= series.guionista %></td>
-    <td><%= series.productores %></td>
-    <td><img src="<%= series.caratula %>" alt="Caratula Serie" height="42" width="42"></td>
-	 <td><%= series.url %></td>
-    <td><%= link_to 'Show', series %></td>
-    <td><%= link_to 'Edit', edit_series_path(series) %></td>
-    <td><%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
+<div class="row-fluid" id="peli_list">
+  
+   <div class="span1">
+   		<img src="<%= series.caratula %>" alt="Caratula Serie" height="100" width="100">
+   </div>
+   <div class="span3">
+   		<h2><%= link_to series.nombre, series %></h2>
+   		Temporada : <%= series.temporada %>	
+   </div>
+   <div class="span1">
+      <%= link_to 'Show', series %>
+      <%= link_to 'Edit', edit_series_path(series) %>
+      <%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %>
+   </div>
+
+</div>
+	
+<% end %>
 
 <%= link_to 'New Series', new_series_path %>

@@ -98,6 +98,9 @@ GEM
     json (1.7.5)
     jwt (0.1.5)
       multi_json (>= 1.0)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     launchy (2.1.2)
       addressable (~> 2.3)
     libv8 (3.3.10.4)
@@ -242,6 +245,7 @@ DEPENDENCIES
   faraday (>= 0.6.1)
   heroku
   jquery-rails
+  kaminari
   launchy (>= 2.1.2)
   mongoid (>= 3.0.11)
   mongoid-rspec (>= 1.4.6)

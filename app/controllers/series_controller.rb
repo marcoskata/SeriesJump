@@ -2,13 +2,13 @@ class SeriesController < ApplicationController
   # GET /series
   # GET /series.json
   def index
-    @series = Series.all
-
+    @series = Series.page(params[7]).per(20)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @series }
     end
   end
+  
 
   # GET /series/1
   # GET /series/1.json
