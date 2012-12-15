@@ -1,17 +1,21 @@
-<h1>Listing peliculas</h1>
+<div class="row-fluid">
+	 <div class="span4 offset3">
+		<h1>Listing peliculas</h1>
+	</div>	
+</div>
 
 <% @peliculas.each do |pelicula| %>
 
    <div class="row-fluid" id="peli_list">
   
-      <div class="span1">
+      <div class="span1 offset1">
    		<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
       </div>
       <div class="span4">
    		<h2><%= link_to pelicula.nombre, pelicula %></h2>
    		<ul>
    			<li>Saga : <%= pelicula.saga %> </li>
-   			<li>Trailer : <%= pelicula.trailers %></li>
+   			<li>Trailer : <a><%= pelicula.trailers %></a></li>
    		</ul>
       </div>
       <div class="span1 offset2">
@@ -24,5 +28,9 @@
 
 
 <br />
+<div class="row-fluid">
+	<div class="span1 offset1">
+		<%= link_to 'New Pelicula', new_pelicula_path %>
+	</div>	
+</div>	
 
-<%= link_to 'New Pelicula', new_pelicula_path %>
