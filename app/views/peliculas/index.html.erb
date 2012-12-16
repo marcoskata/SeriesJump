@@ -1,8 +1,10 @@
+<% if user_signed_in? %>
 <div class="row-fluid">
 	 <div class="span4 offset3">
 		<h1>Listing peliculas</h1>
 	</div>	
 </div>
+
 
 <% @peliculas.each do |pelicula| %>
 
@@ -32,5 +34,7 @@
 	<div class="span1 offset1">
 		<%= link_to 'New Pelicula', new_pelicula_path %>
 	</div>	
-</div>	
-
+</div>
+<% else %>
+<h1> Registrate ¡¡¡¡¡¡ </h1>	
+<% end %>
