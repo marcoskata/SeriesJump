@@ -52,17 +52,51 @@
 <% else %>
 	<div class="span12">  
     	<div class="row-fluid">  
-        	<div class="span10">  
-        		<h1> Disfruta de las mejores Series y Pelis! <h1>
-        		<h2> Entra ya desde cualquier red social </h2>	
-        		<img src='/img/cloud.png' alt="lala" width="300">
+        	<div class="span10 offset2">  
+        		<div class="span10 offset1" id="init">  
+        		   <h2> Series Jump <h2>
+        		</div>  
+ 				<div id="this-carousel-id" class="carousel slide"><!-- class of slide for animation -->
+				  <div class="carousel-inner">
+				    <div class="item active"><!-- class of active since it's the first item -->
+				     <img src='http://frikilogia.com/wp-content/uploads/2011/04/estreno_de_juego_de_tronos.jpg' alt="ca1" width="1000" >
+				      <div class="carousel-caption">
+				        <p> Disfruta de las mejores series </p>
+				      </div>
+				    </div>
+				    <div class="item">
+				      <img src='http://artescritorio.com/wp-content/uploads/2011/01/True_Blood_by_n0t1m3.jpg' alt="ca2"  width="1000" >
+				      <div class="carousel-caption">
+				        <p>y peliculas del momento</p>
+				      </div>
+				    </div>
+				    <div class="item">
+				      <img src='http://www.diariodenavarra.es/uploads/imagenes/bajacalidad/2012/07/31/_hob0001_36ee225d.jpg' alt="ca3" width="1000" >
+				      <div class="carousel-caption">
+				        <p>con la mejor calidad </p>
+				      </div>
+				    </div>
+				    <div class="item">
+				      <img src='http://pixel2pixel.files.wordpress.com/2012/07/the-walking-dead.jpg' alt="ca4" width="1000" >
+				      <div class="carousel-caption">
+				        <p>y desde casa</p>
+				      </div>
+				    </div>
+				  </div><!-- /.carousel-inner -->
+				  <!--  Next and Previous controls below
+				        href values must reference the id for this carousel -->
+				    <a class="carousel-control left" href="#this-carousel-id" data-slide="prev">&lsaquo;</a>
+				    <a class="carousel-control right" href="#this-carousel-id" data-slide="next">&rsaquo;</a>
+				</div><!-- /.carousel -->
+        		
           	</div><!--/span-->  
-  			<div class="span10">  
-        	
-  				<%= link_to( image_tag('/img/logo_t.png'), signin_path)  %>
-  				<%= link_to(image_tag('/img/logo_f.png'), signin1_path)  %>
-  				<%= link_to(image_tag('/img/logo_g.png'), signin2_path)  %>
-  	
+  			<div class="span10 offset3">  
+        	    <h2> Entra ya desde cualquier red social </h2>	
+					<div class="span10 offset2">  
+  						<%= link_to( image_tag('/img/logo_t.png'), signin_path)  %>
+  						<%= link_to(image_tag('/img/logo_f.png'), signin1_path)  %>
+  						<%= link_to(image_tag('/img/logo_g.png'), signin2_path)  %>
+  					</div><!--/span-->  
 			</div><!--/span-->  
          </div><!--/row-->  
 	</div><!--/span-->  
