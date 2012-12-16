@@ -20,9 +20,22 @@
 		 	<%= @pelicula.guionista %>
 		<h4>Productores:  </h4> 
 			<%= @pelicula.productores %>
-		<h3> Urls:</h3>
-           <%= @pelicula.url %>
-			
+		
+		<% if @pelicula.links.size > 0 %>  
+  <h2>Links</h2>  
+  <% for link in @pelicula.links %>  
+    <p>url: <%= link.url %></p>  
+    <p>Idioma: <%= link.idioma %></p> 
+  <% end %>  
+<% end %>  
+  
+<h2>New Link</h2>  
+  
+<%= form_for [@pelicula, Link.new] do |f| %>  
+  <p><%= f.label :url %><%= f.text_field :url %></p>  
+  <p><%= f.label :idioma %><%= f.text_field :idioma %></p>  
+  <p><%= f.submit %></p>  
+<% end %>  
       </div>
       <div class="span1 offset2">
       <%= link_to 'Edit', edit_pelicula_path(@pelicula) %> |

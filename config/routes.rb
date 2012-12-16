@@ -3,7 +3,9 @@ SeriesJump::Application.routes.draw do
 
   resources :series
 
-  resources :peliculas
+  resources :peliculas do  
+    resources :links
+  end  
 
    resources :users
 
