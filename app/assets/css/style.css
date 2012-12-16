@@ -49,8 +49,10 @@ img#caratula {
 }
 
 div#init h2{
+	color: #5B6466; 
 	font-size: 100px;
 	padding-bottom: 20px;
+	text-shadow: 0 0 0.05em #378596
 }
 
 div#carousel-control left {
