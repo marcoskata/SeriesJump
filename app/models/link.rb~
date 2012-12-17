@@ -4,6 +4,6 @@ class Link
   field :url, type: String
   field :idioma, type: String
   field :online, type: Boolean
-  field :servidor, type: String
+  field :servidor, type: string
   embedded_in :pelicula, :inverse_of => :links
 end
