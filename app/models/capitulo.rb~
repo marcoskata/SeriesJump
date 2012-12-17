@@ -1,0 +1,6 @@
+class Capitulo
+  include Mongoid::Document
+  field :temporada, type: Integer
+  field :cap, type: Integer
+  field :link, type: String
+end

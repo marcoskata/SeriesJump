@@ -23,8 +23,22 @@
     <%= f.label :sinopsis %><br />
     <%= f.text_field :sinopsis %>
   </div>
-
-
+  <div class="field">
+    <%= f.label :temporada %><br />
+    <%= f.number_field :temporada %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha %><br />
+    <%= f.date_select :fecha %>
+  </div>
+  <div class="field">
+    <%= f.label :comentarios %><br />
+    <%= f.text_field :comentarios %>
+  </div>
+  <div class="field">
+    <%= f.label :etiquetas %><br />
+    <%= f.text_field :etiquetas %>
+  </div>
   <div class="field">
     <%= f.label :director %><br />
     <%= f.text_field :director %>
@@ -41,7 +55,10 @@
     <%= f.label :caratula %><br />
     <%= f.text_field :caratula %>
   </div>
-
+  <div class="field">
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -20,9 +20,9 @@
 	<% if @series.capitulos.size > 0 %>  
   	<h2>Capitulos</h2>  
   	<% for capitulo in @series.capitulos %>  
-   	 <h3><%= @series.nombre %> <%= capitulo.temporada %></h3>  
-    	<p><%= capitulo.cap %></p>  
-	<p><%= capitulo.link %></p> 
+   	 <h3><%= @series.nombre %> <%= @capitulos.temporada %></h3>  
+    	<p><%= capitulos.cap %></p>  
+	<p><%= capitulos.link %></p> 
   	<% end %>  
 	<% end %>  
   

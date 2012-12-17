@@ -1,9 +1,12 @@
 SeriesJump::Application.routes.draw do
 
 
-  resources :series
+  resources :series do  
+    resources :capitulos
 
-  resources :peliculas
+  resources :peliculas do  
+    resources :links
+  end  
 
    resources :users
 
@@ -17,6 +20,7 @@ SeriesJump::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/privacy', to: 'static_pages#privacy'
   match '/terms', to: 'static_pages#terms'
+  match '/usuarios' => 'home#index'
   
   
 	match '/auth/:provider/callback' => 'sessions#create'
@@ -24,6 +28,7 @@ SeriesJump::Application.routes.draw do
 	match '/signout' => 'sessions#destroy', :as => :signout
 	match '/signin' => 'sessions#new', :as => :signin
 	match '/signin1' => 'sessions#newother', :as => :signin1
+	match '/signin2' => 'sessions#newotherother', :as => :signin2
 	
 	
 end
