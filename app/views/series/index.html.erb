@@ -1,38 +1,44 @@
 <% if user_signed_in? %>
-<div class="row-fluid">
-	 <div class="span4 offset3">
-		<h1>Listing series</h1>
+	<div class="row-fluid">
+		 <div class="span4 offset3">
+			<h1>Listing series</h1>
+		</div>	
+	</div>
+
+	<% @series.each do |series| %>
+		<div class="row-fluid" id="series_list">
+	   		<div class="span1 offset2">
+	   			<img id="caratula" src="<%= series.caratula %>" alt="Caratula Serie" height="100" width="100">
+	  	 	</div>
+	   		<div class="span3">
+	   			<h2><%= link_to series.nombre, series %></h2>
+	   			Temporada : <%= series.temporada %>	
+	   		</div>
+	   		<div class="span1">
+	      		<%= link_to 'Show', series %>
+	      		<%= link_to 'Edit', edit_series_path(series) %>
+	      		<%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %>
+	   		</div>
+		</div>
+	<% end %>
+	<br />
+	<div class="row-fluid">
+		<div class="span1 offset2">
+			<%= link_to 'New Series', new_series_path %>
+		</div>	
 	</div>	
-</div>
 
-
-<% @series.each do |series| %>
-
-<div class="row-fluid" id="series_list">
-  
-   <div class="span1 offset2">
-   		<img id="caratula" src="<%= series.caratula %>" alt="Caratula Serie" height="100" width="100">
-   </div>
-   <div class="span3">
-   		<h2><%= link_to series.nombre, series %></h2>
-   		Temporada : <%= series.temporada %>	
-   </div>
-   <div class="span1">
-      <%= link_to 'Show', series %>
-      <%= link_to 'Edit', edit_series_path(series) %>
-      <%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %>
-   </div>
-
-</div>
-	
-<% end %>
-
-<br />
-<div class="row-fluid">
-	<div class="span1 offset2">
-		<%= link_to 'New Series', new_series_path %>
-	</div>	
-</div>	
 <% else %>
-<h1> Registrate ¡¡¡¡¡¡ </h1>	
+
+<div class="alert alert-error">
+	
+  <a class="close" href="/">×</a>
+  <p>No tienes permisos para acceder a las <strong> Series </strong></p>
+  <div class="alert-actions">
+  	   <a class="btn small"  id="Jump" href="/">Inicia sesion</a> <a class="btn small" id="Jump" href="/terms">O con&oacutecenos antes!</a>
+  </div>
+</div>
+
+	
+
 <% end %>
