@@ -1,9 +1,7 @@
 development:
   sessions:
-    default:
-      uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
-      options:
-        consistency: :strong
+   hosts:
+      - localhost:27017
 test:
   sessions:
     default:
@@ -17,3 +15,23 @@ production:
       options:
         skip_version_check: true
         safe: true
+
+        
+#development:
+#  sessions:
+#    default:
+#      database: series_jump_development
+#      hosts:
+#        - localhost:27017
+#      options:
+
+#test:
+#  sessions:
+#    default:
+#        database: series_jump_test
+#      hosts:
+#        - localhost:27017
+#      options:
+#        consistency: :strong
+#        max_retries: 1
+#        retry_interval: 0
