@@ -9,10 +9,10 @@ SeriesJump::Application.routes.draw do
     resources :links
   end  
 
-   resources :users 
-
+   resources :users do
    resources :followings
-   
+end
+   resources :followings
 
  #  root :to => 'home#index'
 

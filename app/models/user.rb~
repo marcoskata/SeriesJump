@@ -10,6 +10,7 @@ class User
   field :comentarios, type: String
   field :admin, type: Boolean, default: false
   attr_protected :provider, :uid, :name, :email, :admin
+  embeds_many :following
 
   def self.create_with_omniauth(auth)
   create! do |user|
