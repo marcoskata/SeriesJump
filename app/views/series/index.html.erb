@@ -7,9 +7,15 @@
 
 	<% @series.each do |series| %>
 		<div class="row-fluid" id="series_list">
+<<<<<<< HEAD
 	   		<div class="span1">
 	   			<img id="caratula" src="<%= series.caratula %>" alt="Caratula Serie" height="400" width="10">
 	  	 	</div>
+=======
+	   		<div class="span1 offset2">
+	   			<img id="caratula" src="<%= series.caratula %>" alt="Caratula Serie" height="100px" width="100px">
+	  	 	   </div>
+>>>>>>> 1a58f9d2220e31d147e5c5452b221885a34fb637
 	   		<div class="span3">
 	   			<h2><%= link_to series.nombre, series %></h2>
 	   			Temporada :

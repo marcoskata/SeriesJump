@@ -1,5 +1,11 @@
 <li>
-  <%= link_to user.name, user %>
+  <%= link_to user.name, user %> 
+  <%= form_for [@user, Following.new] do |f| %>  
+      <% if current_user.name != user.name %>
+         <p> <%= f.hidden_field :name, :value => user.name  %></p>  
+         <p><%= f.submit %></p>  
+      <% end %>
+  <% end %>
   <% if current_user.admin? %>
 <%= button_to 'Destroy',user , confirm: 'Are you sure?', method: :delete %>
   <% end %>
