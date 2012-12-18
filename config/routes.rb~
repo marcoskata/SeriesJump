@@ -3,12 +3,15 @@ SeriesJump::Application.routes.draw do
 
   resources :series do  
     resources :capitulos
+  end
 
   resources :peliculas do  
     resources :links
   end  
 
-   resources :users
+   resources :users do 
+    resources :followings
+   end
 
  #  root :to => 'home#index'
 
