@@ -1,14 +1,14 @@
 <% if user_signed_in? %>
 	<div class="row-fluid">
-		 <div class="span4 offset3">
+		 <div class="span1 offset1">
 			<h1>Listing series</h1>
 		</div>	
 	</div>
 
 	<% @series.each do |series| %>
 		<div class="row-fluid" id="series_list">
-	   		<div class="span1 offset2">
-	   			<img id="caratula" src="<%= series.caratula %>" alt="Caratula Serie" height="100" width="100">
+	   		<div class="span1">
+	   			<img id="caratula" src="<%= series.caratula %>" alt="Caratula Serie" height="400" width="10">
 	  	 	</div>
 	   		<div class="span3">
 	   			<h2><%= link_to series.nombre, series %></h2>
