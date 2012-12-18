@@ -8,8 +8,8 @@
 	<% @series.each do |series| %>
 		<div class="row-fluid" id="series_list">
 	   		<div class="span1 offset2">
-	   			<img id="caratula" src="<%= series.caratula %>" alt="Caratula Serie" height="100" width="100">
-	  	 	</div>
+	   			<img id="caratula" src="<%= series.caratula %>" alt="Caratula Serie" height="100px" width="100px">
+	  	 	   </div>
 	   		<div class="span3">
 	   			<h2><%= link_to series.nombre, series %></h2>
 	   			Temporada :
