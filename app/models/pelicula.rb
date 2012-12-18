@@ -1,5 +1,8 @@
 class Pelicula
   include Mongoid::Document
+  include Mongoid::Document
+  include Mongoid::Timestamps
+  include Mongoid::MultiParameterAttributes
   field :id, type: String
   field :nombre, type: String
   field :sinopsis, type: String

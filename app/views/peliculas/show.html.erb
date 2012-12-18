@@ -20,7 +20,7 @@
          </div>
       </div>
       <div class="row-fluid">
-			<div class="span5 offset1">  
+			<div class="span6">  
 			   <h2>Nuevo Link</h2>  
                <%= form_for [@pelicula, Link.new] do |f| %>  
                   <h3><%= f.label :url %><%= f.text_field :url %></h3>  
@@ -29,67 +29,44 @@
                   <h3><%= f.label :online %><%= f.text_field :online %></h3>   
                   <h3><%= f.submit %></h3>  
                <% end %>  
-			</div>
+		   </div>
          <div class="span6" >
 		      <% if @pelicula.links.size > 0 %>  
               <h2>Links</h2>  
                <% for link in @pelicula.links %>  
-                  <h3>url: <%= link.url %></h3>  
-                  <h3>Idioma: <%= link.idioma %></h3> 
-                  <h3>servidor: <%= link.servidor %></h3> 
-                  <h3>online: <%= link.online %></h3> 
+                  <h3>url:</h3> <h4><%= link.url %></h4>  
+                  <h3>Idioma:</h3> <h4><%= link.idioma %></h4> 
+                  <h3>servidor:</h3> <h4><%= link.servidor %></h4> 
+                  <h3>online:</h3> <h4><%= link.online %></h4> 
                <% end %>  
             <% end %>
          </div>
       </div>
+      <div class="row-fluid">      
+         <div class="span6" >
+            <% if @pelicula.comments.size > 0 %>  
+               <h2>Comments</h2>
+               <% for comment in @pelicula.comments %>
+                  <div class="span3 offset1"> 
+					      <h4><%= comment.name %></h4> 
+                  </div>
+						<div class="span3 offset3">
+						   <h4><%= comment.content %></h4> 
+						</div>
+  					<% end %>  
+				<% end %>
+          </div>
+          <div class="span6"> 
+              <h2>Nuevo Comentario</h2>  
+              <%= form_for [@pelicula, Comment.new] do |f| %>  
+                 <p><%= f.hidden_field :name, :value => current_user.name  %>  </p> 
+                 <p><%= f.text_area :content, :rows => 10 %></p>  
+                 <p><%= f.submit %></p>  
+              <% end %> 
+			</div>
+      </div>
+
       <div class="span1 offset2">
          <%= link_to 'Edit', edit_pelicula_path(@pelicula) %> |
          <%= link_to 'Back', peliculas_path %>    
       </div>
-      </div>
-   
-   <div class="span6" >
-      <% if @pelicula.comments.size > 0 %>  
-         <h2>Comments</h2>  
-			<div class="row-fluid">
-			   <div class="span3">
-            <% for comment in @pelicula.comments %>  
-    					<div class="row-fluid">
-							<div class="span1">
-								<h4><%= comment.name %></h4> 
-							</div>
-							<div class="span1">
-								<h4><%= comment.content %></h4> 
-							</div>
-							<div class="span3">
-									<h4> <%= capitulo.link %></h4>
-									<div id="example" class="modal hide fade in" style="display: none; ">  
-										<div class="modal-header">  
-											<a class="close" data-dismiss="modal">×</a>  
-											<h3>Links</h3> <h3> <%= capitulo.titulo%> </h3>  
-										</div>  
-										<div class="modal-body">  
-											<h4> assadf <%= capitulo.link%> </h4>
-										</div>  
-										<div class="modal-footer">  
-											<a href="#" class="btn btn-success">Call to action</a>  
-											<a href="#" class="btn" data-dismiss="modal">Cerrar</a>  
-										</div>  
-									</div>  
-								<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>  
-							</div>
-						</div>
-  					<% end %>  
-				<% end %>
-			</div>
-		</div>  
-  
- 
-      
-    <h2>Nuevo Comment</h2>  
-      
-    <%= form_for [@pelicula, Comment.new] do |f| %>  
-      <p><%= f.label :name %> <%= f.text_field :name %></p>  
-      <p><%= f.text_area :content, :rows => 10 %></p>  
-      <p><%= f.submit %></p>  
-    <% end %> 
