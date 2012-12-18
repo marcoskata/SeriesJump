@@ -8,6 +8,9 @@ SeriesJump::Application.routes.draw do
   resources :peliculas do  
     resources :links
   end  
+  resources :peliculas do  
+    resources :comments  
+  end  
 
    resources :users do
    resources :followings
