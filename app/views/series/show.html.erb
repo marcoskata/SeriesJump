@@ -1,44 +1,87 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row-fluid" id="serie_show">
-   <div class="span4 offset2" >
-      <img id="caratula" src="<%=  @series.caratula %>" alt="Caratula Serie" height="300" width="300">
-   </div>
-   <div class="span4">
-      	<h2><%= @series.nombre %></h2>
-   	  	<h4> Sinopsis: </h4> 
-   	  	<p><%= @series.sinopsis %> </p>
-		<h4>Director: </h4> 
-			<%= @series.director %>
-		<h4>Guionista: </h4> 
-		 	<%= @series.guionista %>
-		<h4>Productores:  </h4> 
-			<%= @series.productores %>
-      </div>
-
-
-	<% if @series.capitulos.size > 0 %>  
-  	<h2>Capitulos</h2>  
-  	<% for capitulo in @series.capitulos %>  
-   	 <h3><%= @series.nombre %> <%= capitulo.temporada %></h3>  
-    	<p><%= capitulo.cap %></p>
-		<p><%= capitulo.titulo %></p>
-	<p><%= capitulo.link %></p> 
-  	<% end %>  
-	<% end %>  
-  
-	<h2>New Capitulo</h2>  
-  
-	<%= form_for [@series, Capitulo.new] do |f| %>  
- 	 <p> Capitulo  <%= f.text_field :cap %></p>
-	 <p><%= f.label :titulo %> <%= f.text_field :titulo %></p>
-  	<p><%= f.label :temporada %> <%= f.text_field :temporada %></p>
-	<p><%= f.label :link %> <%= f.text_field :link %></p>  
- 	 <p><%= f.submit %></p>  
-	<% end %>
-
-
-      <div class="span1 offset2">
+   <div class="span12" > 
+		<div class="row-fluid">
+			<div class="span5 offset1">
+				<img id="caratula" src="<%=  @series.caratula %>" alt="Caratula Serie" height="400px" width="400px">
+			</div>
+			<div class="span6">
+      		<h1><%= @series.nombre %></h1>
+   	   	<h3> Sinopsis: </h3> 
+   	  		<h5><%= @series.sinopsis %> </h5>
+				<h3>Director: </h3> 
+				<h4><%= @series.director %></h4>
+				<h3>Guionista: </h3> 
+		 		<h4><%= @series.guionista %></h4>
+				<h3>Productores:  </h3> 
+				<h4><%= @series.productores %></h4>
+			</div>
+		</div>
+		<div class="row-fluid">
+			<div class="span5 offset1">
+				<h2>New Capitulo</h2>   
+				<%= form_for [@series, Capitulo.new] do |f| %>  
+ 	 				<h3> Capitulo </h3> 
+					<h3><%= f.text_field :cap %></h3>
+	 				<h3><%= f.label :titulo %> <%= f.text_field :titulo %></h3>
+  					<h3><%= f.label :temporada %> <%= f.text_field :temporada %></h3>
+					<h3><%= f.label :link %> <%= f.text_field :link %></h3>  
+ 	 				<h3><%= f.submit %></h3>  
+				<% end %>
+			</div>
+			<div class="span6" >
+				<% if @series.capitulos.size > 0 %>  
+  					<h2> Capitulos </h2>
+					<div class="row-fluid">
+							<div class="span3">
+								<h3> Temporada </h3>
+							</div>
+							<div class="span2">
+								<h3> Episodio </h3>
+							</div>
+							<div class="span2">
+								<h3> Título </h3>
+							</div>
+							<div class="span1">
+								<h3> Links </h3>
+							</div>
+					</div>
+  					<% for capitulo in @series.capitulos %>  
+    					<div class="row-fluid">
+							<div class="span1">
+								<h4><%=capitulo.temporada %></h4>
+							</div>
+							<div class="span1">
+								<h4><%= capitulo.cap %></h4>
+							</div>
+							<div class="span3">
+								<h4><%= capitulo.titulo %></h4>
+							</div>
+							<div class="span3">
+									<h4> <%= capitulo.link %></h4>
+									<div id="example" class="modal hide fade in" style="display: none; ">  
+										<div class="modal-header">  
+											<a class="close" data-dismiss="modal">×</a>  
+											<h3>Links</h3> <h3><%= capitulo.titulo%></h3>  
+										</div>  
+										<div class="modal-body">  
+											<h4> <%= capitulo.link%> </h4>
+											<p> <%= capitulo.link%> </p>  
+										</div>  
+										<div class="modal-footer">  
+											<a href="#" class="btn btn-success">Call to action</a>  
+											<a href="#" class="btn" data-dismiss="modal">Cerrar</a>  
+										</div>  
+									</div>  
+								<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>  
+							</div>
+						</div>
+  					<% end %>  
+				<% end %>
+			</div>
+		</div>
+       <div class="span1 offset2">
       	<%= link_to 'Edit', edit_series_path(@series) %> |
 		<%= link_to 'Back', series_index_path %>
 
