@@ -1,3 +1,30 @@
+<<<<<<< HEAD
+#development:
+#  sessions:
+#   hosts:
+#      - localhost:27017
+#test:
+#  sessions:
+#    default:
+#      uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
+#      options:
+#        consistency: :strong
+#production:
+#  sessions:
+#    default:
+#      uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
+#      options:
+#        skip_version_check: true
+#        safe: true        
+development:
+  sessions:
+    default:
+      database: series_jump_development
+      hosts:
+        - localhost:27017
+      options:
+  options:
+=======
 development:
   # Configure available database sessions. (required)
   sessions:
@@ -66,6 +93,7 @@ development:
 
     # Ensure all times are UTC in the app side. (default: false)
     # use_utc: false
+>>>>>>> 8e28022415d2bff93ba352a8eb255dbedf654e26
 test:
   sessions:
     default:
@@ -74,7 +102,10 @@ test:
         - localhost:27017
       options:
         consistency: :strong
+<<<<<<< HEAD
+=======
         # In the test environment we lower the retries and retry interval to
         # low amounts for fast failures.
+>>>>>>> 8e28022415d2bff93ba352a8eb255dbedf654e26
         max_retries: 1
         retry_interval: 0
