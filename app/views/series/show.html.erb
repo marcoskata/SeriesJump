@@ -21,7 +21,8 @@
   	<h2>Capitulos</h2>  
   	<% for capitulo in @series.capitulos %>  
    	 <h3><%= @series.nombre %> <%= capitulo.temporada %></h3>  
-    	<p><%= capitulo.cap %></p>  
+    	<p><%= capitulo.cap %></p>
+		<p><%= capitulo.titulo %></p>
 	<p><%= capitulo.link %></p> 
   	<% end %>  
 	<% end %>  
@@ -29,8 +30,9 @@
 	<h2>New Capitulo</h2>  
   
 	<%= form_for [@series, Capitulo.new] do |f| %>  
- 	 <p><%= f.label :cap %> <%= f.text_field :cap %></p>  
-  	<p><%= f.label :temporada %> <%= f.text_field :temporada %></p>  
+ 	 <p> Capitulo  <%= f.text_field :cap %></p>
+	 <p><%= f.label :titulo %> <%= f.text_field :titulo %></p>
+  	<p><%= f.label :temporada %> <%= f.text_field :temporada %></p>
 	<p><%= f.label :link %> <%= f.text_field :link %></p>  
  	 <p><%= f.submit %></p>  
 	<% end %>
