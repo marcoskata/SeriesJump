@@ -18,4 +18,5 @@ class Pelicula
   validates_presence_of :nombre
   embeds_many :links 
   embeds_many :comments
+  
 end

@@ -55,3 +55,4 @@ gem "therubyracer", ">= 0.10.2", :group => :assets, :platform => :ruby
 gem "faraday", ">= 0.6.1"
 gem "heroku"
 gem "rb-readline"
+gem "will_paginate_mongoid"
