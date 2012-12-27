@@ -37,7 +37,7 @@
               </li>
             </ul>
             
-            
+            <% if user_signed_in? %>
             <ul class="nav pull-right">  
             	
 				<li class="dropdown">
@@ -52,8 +52,10 @@
                  	  <li><a href="#">Edit lalala</a></li>
 				  </ul>
 			   </li>
+			   
 			   <li> <%= link_to('Logout', signout_path) %> </li>	  
   			</ul>  
+  		<% end %>
         </div>
       </div>
     </div>
