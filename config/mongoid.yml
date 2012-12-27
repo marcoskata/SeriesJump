@@ -4,12 +4,14 @@ development:
       uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
       options:
         consistency: :strong
+        raise_not_found_error: false 
 test:
   sessions:
     default:
       uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
       options:
         consistency: :strong
+        raise_not_found_error: false 
 production:
   sessions:
     default:
@@ -17,3 +19,4 @@ production:
       options:
         skip_version_check: true
         safe: true
+        raise_not_found_error: false 

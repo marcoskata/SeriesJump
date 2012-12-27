@@ -1,0 +1,2 @@
+module SeguirpsHelper
+end

@@ -11,8 +11,11 @@
 	</div>	
 </div>
 
+  
 <% @peliculas.each do |pelicula| %>
 
+<br>
+<br>
    <div class="row-fluid" id="peli_list">
   
       <div class="span1 offset1">
@@ -29,9 +32,21 @@
       	<%= link_to 'Show', pelicula %>
     	<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
     	<%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
+    	
+    	<%= form_for [current_user, Seguirp.new] do |f| %>  
+    	<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
+    	<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
+		<p><%= f.submit %></p>  
+		<% end %>
+
+      
       </div>
    </div>
-<% end %>
+
+ 
+<% end %> 
+
+
 <div class='apple_pagination'><%= will_paginate @peliculas %></div>
 
 
