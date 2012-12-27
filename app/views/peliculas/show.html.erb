@@ -33,13 +33,29 @@
          <div class="span6" >
 		      <% if @pelicula.links.size > 0 %>  
               <h2>Links</h2>  
-               <% for link in @pelicula.links %>  
-                  <h3>url:</h3> <h4><%= link.url %></h4>  
-                  <h3>Idioma:</h3> <h4><%= link.idioma %></h4> 
-                  <h3>servidor:</h3> <h4><%= link.servidor %></h4> 
-                  <h3>online:</h3> <h4><%= link.online %></h4> 
-               <% end %>  
-            <% end %>
+					<div class="span3">
+                  <div id="example" class="modal hide fade in" style="display: none; ">
+                     <div class="modal-header">
+                        <a class="close" data-dismiss="modal">×</a>
+                        <h3><%= @pelicula.nombre %> </h3>
+                     </div>
+                     <div class="modal-body">
+               			<% for link in @pelicula.links %>  
+                  			<h3>url:</h3> <h4><%= link.url %></h4>  
+                  			<h3>Idioma:</h3> <h4><%= link.idioma %></h4> 
+                  			<h3>servidor:</h3> <h4><%= link.servidor %></h4> 
+                  			<h3>online:</h3> <h4><%= link.online %></h4> 
+               			<% end %>
+                     </div>
+                     <div class="modal-footer">
+                        <a href="#" class="btn btn-success">Call to action</a>
+                        <a href="#" class="btn" data-dismiss="modal">Cerrar</a>
+                     </div>
+                  </div>
+                  <p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>
+               </div>
+          </div>
+          <% end %>
          </div>
       </div>
       <div class="row-fluid">      
