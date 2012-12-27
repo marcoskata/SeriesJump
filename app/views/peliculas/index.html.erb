@@ -5,6 +5,12 @@
 	</div>	
 </div>
 
+<div class="row-fluid">
+	<div class="span1 offset1">
+		<%= link_to 'New Pelicula', new_pelicula_path %>
+	</div>	
+</div>
+
 <% @peliculas.each do |pelicula| %>
 
    <div class="row-fluid" id="peli_list">
@@ -30,11 +36,7 @@
 
 
 <br />
-<div class="row-fluid">
-	<div class="span1 offset1">
-		<%= link_to 'New Pelicula', new_pelicula_path %>
-	</div>	
-</div>
+
 <% else %>
 <h1> Registrate ¡¡¡¡¡¡ </h1>	
 <% end %>

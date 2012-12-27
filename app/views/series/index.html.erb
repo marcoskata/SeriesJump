@@ -4,7 +4,11 @@
 			<h1>Listing series</h1>
 		</div>	
 	</div>
-
+	<div class="row-fluid">
+		<div class="span1 offset2">
+			<%= link_to 'New Series', new_series_path %>
+		</div>	
+	</div>	
 	<% @series.each do |series| %>
 		<div class="row-fluid" id="series_list">
 	   		<div class="span1 offset2">
@@ -23,11 +27,7 @@
 	<% end %>
 	<div class='apple_pagination'><%= will_paginate @series %></div>
 	<br />
-	<div class="row-fluid">
-		<div class="span1 offset2">
-			<%= link_to 'New Series', new_series_path %>
-		</div>	
-	</div>	
+
 
 <% else %>
 
