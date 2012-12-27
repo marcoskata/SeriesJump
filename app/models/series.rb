@@ -8,5 +8,6 @@ class Series
   field :productores, type: String
   field :caratula, type: String
   validates_presence_of :nombre, :id
-  embeds_many :capitulos 
+  embeds_many :capitulos
+  embeds_many :coments 
 end
