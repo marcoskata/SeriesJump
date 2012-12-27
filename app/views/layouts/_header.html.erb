@@ -5,9 +5,24 @@
         <div class="container-fluid">
           <a class="brand" id="Jump" href="/">Series Jump</a>
           	<ul class="nav">
-           			<% if user_signed_in? %>
-						 
-					  	 <li class="dropdown">  
+           			<% if not user_signed_in? %>
+					  
+
+			          <li><a href="/about">About</a></li>
+		              <li><a href="/privacy">Privacy</a></li>
+		              <li><a href="/help">Help</a></li>
+		              <li><a href="/terms">Terms</a></li>
+
+					<% else %>
+                  
+                
+              </li>
+            </ul>
+            
+            
+            <ul class="nav pull-right">  
+            
+             <li class="dropdown">  
     						<a href="#" class="dropdown-toggle" data-toggle="dropdown">  Social  
           						<b class="caret"></b>  
     						</a>  
@@ -23,22 +38,6 @@
     							</li>  
   							</ul>  
   						</li>	
-						  
-					<% else %>
-
-			          <li><a href="/about">About</a></li>
-		              <li><a href="/privacy">Privacy</a></li>
-		              <li><a href="/help">Help</a></li>
-		              <li><a href="/terms">Terms</a></li>
-
-					<% end %>
-                  
-                
-              </li>
-            </ul>
-            
-            <% if user_signed_in? %>
-            <ul class="nav pull-right">  
             	
 				<li class="dropdown">
 	               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Perfil de <%= current_user.name %>  <b class="caret"></b></a>
