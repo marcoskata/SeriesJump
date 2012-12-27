@@ -78,35 +78,34 @@
 				<% end %>
 			</div>
 		</div>
+       <div class="row-fluid">
+          <div class="span6" >
+             <% if @series.coments.size > 0 %>
+                <h2>Comments</h2>
+                <% for coment in @series.coments %>
+                   <div class="span3 offset1">
+                      <h4><%= coment.name %></h4>
+                   </div>
+                   <div class="span3 offset3">
+                      <h4><%= coment.content %></h4>
+                   </div>
+                <% end %>
+             <% end %>
+           </div>
+           <div class="span6">
+               <h2>Nuevo Comentario</h2>
+               <%= form_for [@series, Coment.new] do |f| %>
+                  <p><%= f.hidden_field :name, :value => current_user.name  %>  </p>
+                  <p><%= f.text_area :content, :rows => 10 %></p>
+                  <p><%= f.submit %></p>
+               <% end %>
+          </div>
+       </div>
+
+
        <div class="span1 offset2">
       	<%= link_to 'Edit', edit_series_path(@series) %> |
 		<%= link_to 'Back', series_index_path %>
 
       </div>
    </div>
-   <div class="row-fluid" id="serie_comentarios">
-      <div class="span4 offset2" >
-      
-      
-          <% if @series.coments.size > 0 %>  
-      <h2>Comments</h2>  
-      <% for coment in @series.coments %>  
-        <h3><%= coment.name %></h3>  
-        <p><%= coment.content %></p>  
-      <% end %>  
-    <% end %>  
-      
-    <h2>New Comment</h2>  
-      
-    <%= form_for [@series, Coment.new] do |f| %>  
-      <p><%= f.hidden_field :name, :value => current_user.name  %>  </p> 
-      <p><%= f.text_area :content, :rows => 10 %></p>  
-      <p><%= f.submit %></p>  
-    <% end %>  
-      
-      
-      
-      
-
-   </div>
-  </div>		
