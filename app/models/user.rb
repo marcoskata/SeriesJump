@@ -12,6 +12,7 @@ class User
   attr_protected :provider, :uid, :name, :email, :admin
   embeds_many :followings
   embeds_many :seguirps
+  embeds_many :seguirs
 
   def self.create_with_omniauth(auth)
   create! do |user|

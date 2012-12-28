@@ -21,6 +21,10 @@ end
   resources :users do  
     resources :seguirps  
   end  
+  
+    resources :users do  
+    resources :seguirs  
+  end  
 
    resources :followings
 

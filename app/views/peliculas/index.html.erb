@@ -37,7 +37,7 @@
     	<%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
     	
     	<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
-    	<p> ya la vistes </p>
+    	<p> Ya la vistes </p>
     	
     	<% else %>
     	<%= form_for [current_user, Seguirp.new] do |f| %>  

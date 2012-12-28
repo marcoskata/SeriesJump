@@ -1,0 +1,35 @@
+<% if user_signed_in? %>
+
+<div class="row-fluid">
+   <div class="span1">
+	</div>
+	<div class="span4">
+		<h1> Series seguidas </h1> 
+		<% current_user.seguirs.each do |seguir| %>
+			<% seri = Series.find (id = seguir.idp) %>
+			<img id="caratula" src="<%= seri.caratula %>" alt="Caratula Pelicula" height="200" width="200">
+			<h3><%= link_to seri.nombre, seri %></h3>
+			<br>
+		<% end %>
+	</div>
+	<div class="span4">
+	</div>
+</div>
+
+
+
+
+
+<br />
+
+<% else %>
+
+ <div class="alert alert-error">
+    <a class="close" href="/">×</a>
+    <p>No tienes permisos para acceder a las <strong> Series </strong></p>
+    <div class="alert-actions">
+        <a class="btn small"  id="Jump" href="/">Inicia sesion</a> <a class="btn small" id="Jump" href="/terms">O con&oacutecenos antes!</a>
+    </div>
+  </div>
+
+<% end %>
