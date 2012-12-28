@@ -53,13 +53,5 @@
 <br />
 
 <% else %>
-
- <div class="alert alert-error"> 
-   <a class="close" href="/">×</a>
-   <p>No tienes permisos para acceder a las <strong> Series </strong></p>
-   <div class="alert-actions">
-      <a class="btn small"  id="Jump" href="/">Inicia sesion</a> <a class="btn small" id="Jump" href="/terms">O con&oacutecenos antes!</a>
-  </div>
-</div>
-	
+<h1> Registrate ¡¡¡¡¡¡ </h1>	
 <% end %>

@@ -6,10 +6,8 @@
 
 <% peli = Pelicula.find (id = seguirp.idp) %>
 
-<img id="caratula" src="<%= peli.caratula %>" alt="Caratula Pelicula" height="100" width="100">
-<p> <%= peli.nombre %> </p>
-<p> <%= peli.saga %> </p>
-<p> <%= peli.trailers %> </p>
+<img id="caratula" src="<%= peli.caratula %>" alt="Caratula Pelicula" height="200" width="200">
+<h3> <%= peli.nombre %> </h3>
 <br>
 <br>
 <br>
