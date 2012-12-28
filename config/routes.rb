@@ -35,6 +35,7 @@ end
   match '/privacy', to: 'static_pages#privacy'
   match '/terms', to: 'static_pages#terms'
   match '/usuarios' => 'home#index'
+  match '/seguirp' => 'seguirp#show'
   
   
 	match '/auth/:provider/callback' => 'sessions#create'

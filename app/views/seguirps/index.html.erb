@@ -1,0 +1,23 @@
+<% if user_signed_in? %>
+
+<h1> Peliculas vistas </h1>
+  
+<% current_user.seguirps.each do |seguirp| %>
+
+<% peli = Pelicula.find (id = seguirp.idp) %>
+
+<p> <%= peli.nombre %> </p>
+<p> <%= peli.saga %> </p>
+<p> <%= peli.trailers %> </p>
+
+<% end %> 
+
+
+
+
+
+<br />
+
+<% else %>
+<h1> Registrate ¡¡¡¡¡¡ </h1>	
+<% end %>
