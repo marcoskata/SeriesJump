@@ -20,3 +20,6 @@ class Pelicula
   embeds_many :comments
   
 end
+
+
+
