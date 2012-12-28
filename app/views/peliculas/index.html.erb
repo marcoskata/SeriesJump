@@ -1,51 +1,43 @@
 <% if user_signed_in? %>
 <div class="row-fluid">
-	 <div class="span4 offset3">
+	 <div class="span3 offset3">
 		<h1>Listing peliculas</h1>
 	</div>	
 </div>
 
 <div class="row-fluid">
-	<div class="span1 offset1">
+	<div class="span1 offset2">
 		<%= link_to 'New Pelicula', new_pelicula_path %>
 	</div>	
 </div>
 
-
-
 <% @peliculas.each do |pelicula| %>
-
-   
-
 <br>
 <br>
    <div class="row-fluid" id="peli_list">
   
-      <div class="span1 offset1">
+      <div class="span1 offset2">
    		<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
       </div>
-      <div class="span4">
+      <div class="span3">
    		<h2><%= link_to pelicula.nombre, pelicula %></h2>
    		<ul>
    			<li>Saga : <%= pelicula.saga %> </li>
    			<li>Trailer : <a><%= pelicula.trailers %></a></li>
    		</ul>
       </div>
-      <div class="span1 offset2">
+      <div class="span1">
       	<%= link_to 'Show', pelicula %>
-    	<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
-    	<%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
-    	
-    	<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
-    	<p> Ya la vistes </p>
-    	
-    	<% else %>
-    	<%= form_for [current_user, Seguirp.new] do |f| %>  
-    	<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
-    	<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
-		<p><%= f.submit %></p>  
-		<% end %>
-		
+    		<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
+    		<%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
+    		<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
+    			<p> Ya la vistes </p>	
+    		<% else %>
+    		<%= form_for [current_user, Seguirp.new] do |f| %>  
+    			<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
+    			<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
+				<p><%= f.submit %></p>  
+			<% end %>
 		<% end %>
       
       </div>
