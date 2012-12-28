@@ -8,7 +8,7 @@
 		<% current_user.seguirps.each do |seguirp| %>
 			<% peli = Pelicula.find (id = seguirp.idp) %>
 			<img id="caratula" src="<%= peli.caratula %>" alt="Caratula Pelicula" height="200" width="200">
-			<h3> <%= peli.nombre %> </h3>
+			<h3><%= link_to peli.nombre, peli %></h3>
 			<br>
 		<% end %>
 	</div>
