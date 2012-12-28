@@ -13,7 +13,7 @@
 
   
 <% @peliculas.each do |pelicula| %>
-<% if not current_user.seguirps.where(name: pelicula.nombre ).exists? %>
+<% if not current_user.seguirps.where(idp: pelicula.id ).exists? %>
 <br>
 <br>
    <div class="row-fluid" id="peli_list">
