@@ -1,17 +1,20 @@
 <% if user_signed_in? %>
 
-<h1> Peliculas vistas </h1>
-  
-<% current_user.seguirps.each do |seguirp| %>
-
-<% peli = Pelicula.find (id = seguirp.idp) %>
-
-<img id="caratula" src="<%= peli.caratula %>" alt="Caratula Pelicula" height="200" width="200">
-<h3> <%= peli.nombre %> </h3>
-<br>
-<br>
-<br>
-<% end %> 
+<div class="row-fluid">
+   <div class="span1">
+	</div>
+	<div class="span4">
+		<h1> Peliculas vistas </h1> 
+		<% current_user.seguirps.each do |seguirp| %>
+			<% peli = Pelicula.find (id = seguirp.idp) %>
+			<img id="caratula" src="<%= peli.caratula %>" alt="Caratula Pelicula" height="200" width="200">
+			<h3> <%= peli.nombre %> </h3>
+			<br>
+		<% end %>
+	</div>
+	<div class="span4">
+	</div>
+</div>
 
 
 
