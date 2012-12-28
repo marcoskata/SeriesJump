@@ -11,9 +11,12 @@
 	</div>	
 </div>
 
-  
+
+
 <% @peliculas.each do |pelicula| %>
-<% if not current_user.seguirps.where(idp: pelicula.id ).exists? %>
+
+   
+
 <br>
 <br>
    <div class="row-fluid" id="peli_list">
@@ -33,21 +36,27 @@
     	<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
     	<%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
     	
+    	<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
+    	<p> ya la vistes </p>
+    	
+    	<% else %>
     	<%= form_for [current_user, Seguirp.new] do |f| %>  
     	<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
     	<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
 		<p><%= f.submit %></p>  
 		<% end %>
-
+		
+		<% end %>
       
       </div>
    </div>
 
-<% end %>
+
 <% end %> 
 
 
-<div class='apple_pagination'><%= will_paginate @peliculas %></div>
+<div class='apple_pagination'><%= will_paginate @pelis %></div> 
+
 
 
 <br />
