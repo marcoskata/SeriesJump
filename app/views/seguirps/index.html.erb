@@ -1,19 +1,20 @@
 <% if user_signed_in? %>
 
-<h1> Peliculas vistas </h1>
-  
-<% current_user.seguirps.each do |seguirp| %>
-
-<% peli = Pelicula.find (id = seguirp.idp) %>
-
-<img id="caratula" src="<%= peli.caratula %>" alt="Caratula Pelicula" height="100" width="100">
-<p> <%= peli.nombre %> </p>
-<p> <%= peli.saga %> </p>
-<p> <%= peli.trailers %> </p>
-<br>
-<br>
-<br>
-<% end %> 
+<div class="row-fluid">
+   <div class="span1">
+	</div>
+	<div class="span4">
+		<h1> Peliculas vistas </h1> 
+		<% current_user.seguirps.each do |seguirp| %>
+			<% peli = Pelicula.find (id = seguirp.idp) %>
+			<img id="caratula" src="<%= peli.caratula %>" alt="Caratula Pelicula" height="200" width="200">
+			<h3><%= link_to peli.nombre, peli %></h3>
+			<br>
+		<% end %>
+	</div>
+	<div class="span4">
+	</div>
+</div>
 
 
 
@@ -22,5 +23,13 @@
 <br />
 
 <% else %>
-<h1> Registrate ¡¡¡¡¡¡ </h1>	
+
+ <div class="alert alert-error">
+    <a class="close" href="/">×</a>
+    <p>No tienes permisos para acceder a las <strong> Series </strong></p>
+    <div class="alert-actions">
+        <a class="btn small"  id="Jump" href="/">Inicia sesion</a> <a class="btn small" id="Jump" href="/terms">O con&oacutecenos antes!</a>
+    </div>
+  </div>
+
 <% end %>

@@ -1,0 +1,37 @@
+<% if user_signed_in? %>
+
+<h1> Peliculas vistas </h1>
+  
+<% current_user.seguirps.each do |seguirp| %>
+
+<% peli = Pelicula.find (id = seguirp.idp) %>
+
+<img id="caratula" src="<%= peli.caratula %>" alt="Caratula Pelicula" height="100" width="100">
+<p> <%= peli.nombre %> </p>
+<p> <%= peli.saga %> </p>
+<p> <%= peli.trailers %> </p>
+<br>
+<br>
+<br>
+<% end %> 
+
+
+
+
+
+<br />
+
+<% else %>
+
+ <div class="alert alert-error">
+ 35 
+ 36   <a class="close" href="/">×</a>
+ 37   <p>No tienes permisos para acceder a las <strong> Series </strong></p>
+ 38   <div class="alert-actions">
+ 39       <a class="btn small"  id="Jump" href="/">Inicia sesion</a> <a class="btn small" id="Jump" href="/terms">O con&oacutecenos antes!</a>
+ 40   </div>
+ 41 </div>
+
+
+
+<% end %>

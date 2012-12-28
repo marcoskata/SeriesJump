@@ -11,12 +11,9 @@
 	</div>	
 </div>
 
-
-
+  
 <% @peliculas.each do |pelicula| %>
-
-   
-
+<% if not current_user.seguirps.where(idp: pelicula.id ).exists? %>
 <br>
 <br>
    <div class="row-fluid" id="peli_list">
@@ -36,39 +33,25 @@
     	<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
     	<%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
     	
-    	<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
-    	<p> ya la vistes </p>
-    	
-    	<% else %>
     	<%= form_for [current_user, Seguirp.new] do |f| %>  
     	<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
     	<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
 		<p><%= f.submit %></p>  
 		<% end %>
-		
-		<% end %>
+
       
       </div>
    </div>
 
-
+<% end %>
 <% end %> 
 
 
-<div class='apple_pagination'><%= will_paginate @pelis %></div> 
-
+<div class='apple_pagination'><%= will_paginate @peliculas %></div>
 
 
 <br />
 
 <% else %>
-
- <div class="alert alert-error"> 
-   <a class="close" href="/">×</a>
-   <p>No tienes permisos para acceder a las <strong> Series </strong></p>
-   <div class="alert-actions">
-      <a class="btn small"  id="Jump" href="/">Inicia sesion</a> <a class="btn small" id="Jump" href="/terms">O con&oacutecenos antes!</a>
-  </div>
-</div>
-	
+<h1> Registrate ¡¡¡¡¡¡ </h1>	
 <% end %>
