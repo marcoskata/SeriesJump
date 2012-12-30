@@ -23,6 +23,7 @@
 	      		<%= link_to 'Edit', edit_series_path(series) %>
 	      		<% if current_user.admin? %>
 	      		    <%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %>
+	      		<% end %> 
 	      		<% if current_user.seguirs.where(idp: series.id ).exists? %> 
 				
 				<p> La estas siguiendo </p>
@@ -39,7 +40,6 @@
 	<% end %>
 	<div class='apple_pagination'><%= will_paginate @series %></div>
 	<br />
-
 
 <% else %>
 

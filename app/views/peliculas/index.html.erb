@@ -31,6 +31,7 @@
     		<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
     		<% if current_user.admin? %>
     		     <%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
+    		<% end %> 
     		<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
     			<p> Ya la vistes </p>	
     		<% else %>
