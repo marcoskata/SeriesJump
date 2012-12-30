@@ -21,7 +21,8 @@
 	   		<div class="span1">
 	      		<%= link_to 'Show', series %>
 	      		<%= link_to 'Edit', edit_series_path(series) %>
-	      		<%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %>
+	      		<% if current_user.admin? %>
+	      		    <%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %>
 	      		<% if current_user.seguirs.where(idp: series.id ).exists? %> 
 				
 				<p> La estas siguiendo </p>
