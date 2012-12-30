@@ -1,0 +1,8 @@
+<% if @peliculas_busqueda %>
+	<% @peliculas_busqueda.each do |pelicula| %>
+   		Result: <% pelicula.nombre %>
+	<% end %>
+<% else %>
+        <span>There were no results for your query</span><br/><br/>
+	
+<% end %>

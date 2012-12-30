@@ -40,6 +40,7 @@ end
   match '/terms', to: 'static_pages#terms'
   match '/usuarios' => 'home#index'
   match '/seguirp' => 'seguirp#show'
+  match '/search' => 'peliculas#search'
   
   
 	match '/auth/:provider/callback' => 'sessions#create'

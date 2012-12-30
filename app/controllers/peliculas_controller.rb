@@ -80,4 +80,16 @@ class PeliculasController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def search
+    
+    if params[:pelicula]
+      @peliculas_busqueda = Pelicula.where(nombre: params[:pelicula])
+    end
+    respond_to do |format|
+      format.html { redirect_to search(@peliculas_busqueda) }
+      format.json { head :no_content }
+    end
+   end
+  
 end
