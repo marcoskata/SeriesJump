@@ -81,15 +81,21 @@ class PeliculasController < ApplicationController
     end
   end
   
-  def search
-    
-    if params[:pelicula]
-      @peliculas_busqueda = Pelicula.where(nombre: params[:pelicula])
-    end
-    respond_to do |format|
-      format.html { redirect_to search(@peliculas_busqueda) }
-      format.json { head :no_content }
-    end
+  def search()
+      @peliculas_busqueda = []
+      begin
+        peli = Pelicula.find_by(nombre: params[:pelicula])
+        @peliculas_busqueda << Pelicula.find(peli)
+        puts " *************************************** esa ki"
+        puts @peliculas_busqueda[0].nombre
+        
+      rescue
+           @peliculas_busqueda = []
+      end
+          respond_to do |format|
+          format.html { }
+        format.json { head :no_content }
+      end
    end
   
 end

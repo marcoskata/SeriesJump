@@ -1,8 +1,10 @@
-<% if @peliculas_busqueda %>
-	<% @peliculas_busqueda.each do |pelicula| %>
-   		Result: <% pelicula.nombre %>
-	<% end %>
+<% puts "fueraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" %>
+
+<% if @peliculas_busqueda.empty? %>
+	<span>There were no results for your query</span><br/><br/>
 <% else %>
-        <span>There were no results for your query</span><br/><br/>
-	
+        
+	<% @peliculas_busqueda.each do |pelicula| %>
+   		Result:  <%= link_to pelicula.nombre, Pelicula.find(pelicula.id), :controller => "peliculas" %> 
+	<% end %>
 <% end %>
