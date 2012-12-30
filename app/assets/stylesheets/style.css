@@ -26,7 +26,6 @@ body {
 
 h1 {
 	font-family: 'Molle';
-	src: ("http://fonts.googleapis.com/css?family=Molle:400italic");
 
 }
 
@@ -37,3 +36,47 @@ padding-left: 30px;
 -webkit-border-radius:10px;
 
 }
+
+#caratula {
+	padding-top: 20px;
+	
+	
+}
+
+img#caratula {
+	border-radius: 10px;
+	
+}
+
+div#init h2{
+	color: #5B6466; 
+	font-size: 100px;
+	padding: 50px 0px 50px 0px;
+	text-shadow: 0 0 0.05em #378596
+	
+}
+
+div#carousel-control left {
+	padding-bottom:100px;
+	
+}
+
+.socials {  
+padding: 10px;  
+}  
+
+#flash_notice, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+}
+
+#flash_notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+}
+
+#flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+}
+
