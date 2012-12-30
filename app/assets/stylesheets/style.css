@@ -26,7 +26,6 @@ body {
 
 h1 {
 	font-family: 'Molle';
-	src: ("http://fonts.googleapis.com/css?family=Molle:400italic");
 
 }
 
@@ -36,4 +35,27 @@ padding-left: 30px;
 -moz-border-radius:10px;
 -webkit-border-radius:10px;
 
+}
+
+#caratula {
+	padding-top: 20px;
+	
+	
+}
+
+img#caratula {
+	border-radius: 10px;
+	
+}
+
+div#init h2{
+	color: #5B6466; 
+	font-size: 100px;
+	padding-bottom: 20px;
+	text-shadow: 0 0 0.05em #378596
+}
+
+div#carousel-control left {
+	padding-bottom:100px;
+	
 }
