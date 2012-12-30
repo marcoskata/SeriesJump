@@ -1,22 +1,26 @@
 development:
   sessions:
     default:
-      uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
+      database: series_jump_development
+      hosts:
+        - localhost:27017
       options:
-        consistency: :strong
-        raise_not_found_error: false 
+  options:
+development:
+  sessions:
+    default:
+      database: series_jump_development
+      hosts:
+        - localhost:27017
+      options:
+  options:
 test:
   sessions:
     default:
-      uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
+      database: series_jump_test
+      hosts:
+        - localhost:27017
       options:
         consistency: :strong
-        raise_not_found_error: false 
-production:
-  sessions:
-    default:
-      uri: mongodb://marcoskata:ma123456@dbh61.mongolab.com:27617/series_jump_development
-      options:
-        skip_version_check: true
-        safe: true
-        raise_not_found_error: false 
+        max_retries: 1
+        retry_interval: 0

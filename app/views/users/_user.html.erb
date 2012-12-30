@@ -1,11 +1,12 @@
 <li>
   <%= link_to user.name, user %> 
-  <% if current_user.followings.where(id: user.uid ) %> 
-	<p> Lo estas siguiendo </p>
+  <% if current_user.followings.where(idu: user.id ).exists? %> 
+	  <%= button_to "Unfollow", {:controller => :followings, :action => 'destroy', :id => user.id}, :method => :delete %> 
 <% else %>
   <%= form_for [current_user, Following.new] do |f| %>  
       <% if current_user.id != user.id %>
-         <p> <%= f.text_field :name, :value => user.name  %></p>  
+         <p> <%= f.hidden_field  :idu, :value => user.id  %></p>
+         <p> <%= f.hidden_field  :name, :value => user.name  %></p>  
          <p><%= f.submit %></p>  
       <% end %>
   <% end %>
