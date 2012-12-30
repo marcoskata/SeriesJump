@@ -5,8 +5,8 @@ class FollowingsController < ApplicationController
     redirect_to @user, :notice => "Follow created!"    
   end 
   
-   def show
-    @following = Following.find(params[:idu])
+  def show
+    @following = Following.find(params[:id])
   end
   
   def index

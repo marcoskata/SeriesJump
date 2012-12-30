@@ -1,0 +1,4 @@
+<h3>followings</h3>
+<% current_user.followings.each do |user| %>
+   <%= link_to user.name, User.find(user.idu), :controller => "users" %> 
+<% end %>
