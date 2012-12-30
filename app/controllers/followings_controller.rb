@@ -13,4 +13,12 @@ class FollowingsController < ApplicationController
     @following = Following.all
   end
   
+  def destroy
+    current_user.followings.where(idu: params[:id] ).delete
+    
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.json { head :no_content }
+    end
+  end
 end
