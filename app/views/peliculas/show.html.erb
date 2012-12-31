@@ -1,22 +1,79 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row-fluid" id="pelicula_show">
-   <div class="span12" > 
-		<div class="row-fluid">
-			<div class="span5 offset1">
-            <img id="caratula" src="<%=  @pelicula.caratula %>" alt="Caratula Pelicula" height="300" width="300">
-         </div>
-         <div class="span6">
-      	   <h1><%=  @pelicula.nombre %></h1>
-   	  	   <h3> Sinopsis: </h3> 
-   	  	   <h5><%= @pelicula.sinopsis %> </h5>
-		      <h3>Saga: </h3> <h4><%= @pelicula.saga %> </h4> 
-		      <h3>Fecha: </h3> <h4><%= @pelicula.fecha %> </h4>
-		      <h3>Trailers:</h3> <h4><%= @pelicula.trailers %></h4>
-		      <h3>Etiquetas: </h3> <h4><%= @pelicula.etiquetas %></h4>
-		      <h3>Director: </h3> <h4><%= @pelicula.director %></h4>
-		      <h3>Guionista: </h3> <h4><%= @pelicula.guionista %></h4>
-		      <h3>Productores:  </h3> <h4><%= @pelicula.productores %></h4>
+	<h1><%=  @pelicula.nombre %></h1>
+</div>
+
+<div class="row-fluid">
+	<div class="span5 offset1">
+    	<br><img src="<%=  @pelicula.caratula %>" alt="Caratula Pelicula" height="1000" width="900" class="img-rounded">
+    </div>
+    <div class="span6">
+    	<div class="row-fluid">
+   	  	    <div class="span2">
+   	  	    	<h3> Sinopsis: </h3> 
+   	  	    </div>
+   	  	</div>
+   	  	<div class="row-fluid">
+   	  	    <div class="span4 offset1">
+   	  	    	<h5><%= @pelicula.sinopsis %> </h5>
+		    </div>
+   	  	 </div>
+   	  	 <div class="row-fluid">
+   	  	    <div class="span2">
+   	  	    	<h3> Saga: </h3> 
+   	  	    </div>
+   	  	    <div class="span4">
+   	  	    	<h3><%= @pelicula.saga %> </h3>
+		    </div>
+   	  	 </div> 
+   	 	 <div class="row-fluid">
+   	  	    <div class="span2">
+   	  	    	<h3> Año: </h3> 
+   	  	    </div>
+   	  	    <div class="span4">
+   	  	    	<h3><%= @pelicula.fecha.year %> </h3>
+		    </div>
+   	  	 </div> 
+   	  	 <div class="row-fluid">
+   	  	    <div class="span2">
+   	  	    	<h5> Trailer: </h5> 
+   	  	    </div>
+   	  	    <div class="span6">
+   	  	    	<h5><%= @pelicula.trailers  %> </h5>
+		    </div>
+   	  	 </div> 
+   	  	 <div id="myCollapsibleExample">
+   	  	 	<a href="#more_info" data-toggle="collapse"> M&aacutes informaci&oacuten</a>
+   	  	 </div>  
+		 <div id="more_info" class="collapse">
+		 	<div class="row-fluid">
+   	  	   		<div class="span2">
+   	  	   			<h5><span>Director:</span> asd </h5> 
+   	  	   		</div>
+   	  	   		<div class="span4">
+   	  	   			<h5><%= @pelicula.director %> </h5>
+		  	 	</div>
+   	  	 	</div> 
+   	  	 	<div class="row-fluid">
+   	  	   		<div class="span2">
+   	  	   			<h3> Guionista: </h3> 
+   	  	   		</div>
+   	  	   		<div class="span4">
+   	  	   			<h5><%= @pelicula.guionista %> </h5>
+		  	 	</div>
+   	  	 	</div> 
+   	  	 	<div class="row-fluid">
+   	  	   		<div class="span2">
+   	  	   			<h3> Productores: </h3> 
+   	  	   		</div>
+   	  	   		<div class="span4">
+   	  	   			<h5><%= @pelicula.productores %> </h5>
+		  	 	</div>
+   	  	 	</div> 
+   	  	 
+	   	    	<h3>Etiquetas??: </h3> <h4><%= @pelicula.etiquetas %></h4>
+		  	</div> 
          </div>
       </div>
       <div class="row-fluid">

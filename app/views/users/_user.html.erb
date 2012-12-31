@@ -1,8 +1,10 @@
 <li>
-  <%= link_to user.name, user %> 
+  
   <% if current_user.followings.where(idu: user.id ).exists? %> 
+	  <%= link_to user.name, user %> 
 	  <%= button_to "Unfollow", {:controller => :followings, :action => 'destroy', :id => user.id}, :method => :delete %> 
 <% else %>
+	<p>	<%= user.name %> </p>
   <%= form_for [current_user, Following.new] do |f| %>  
       <% if current_user.id != user.id %>
          <p> <%= f.hidden_field  :idu, :value => user.id  %></p>

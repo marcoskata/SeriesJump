@@ -35,7 +35,8 @@ SeriesJump::Application.routes.draw do
   end  
 
   resources :followings
-
+  resources :seguirps
+  resources :seguirs
   resources :followers
   
  #  root :to => 'home#index'
@@ -49,7 +50,7 @@ SeriesJump::Application.routes.draw do
   match '/terms', to: 'static_pages#terms'
   match '/usuarios' => 'home#index'
   match '/following' => 'users#following'
-  match '/seguirp' => 'seguirp#show'
+  match '/seguirp' => 'users#seguirp'
   match '/search' => 'peliculas#search'
   
   
