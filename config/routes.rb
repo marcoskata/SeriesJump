@@ -27,6 +27,8 @@ end
   end  
 
    resources :followings
+   resources :seguirps
+   resources :seguirs
 
  #  root :to => 'home#index'
 
@@ -40,7 +42,7 @@ end
   match '/terms', to: 'static_pages#terms'
   match '/usuarios' => 'home#index'
   match '/following' => 'users#following'
-  match '/seguirp' => 'seguirp#show'
+  match '/seguirp' => 'users#seguirp'
   match '/search' => 'peliculas#search'
   
   

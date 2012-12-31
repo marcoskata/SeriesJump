@@ -4,7 +4,7 @@
    <div class="span1">
 	</div>
 	<div class="span4">
-		<h1> Peliculas vistas </h1> 
+		<h1> Peliculas favoritas </h1> 
 		<% current_user.seguirps.each do |seguirp| %>
 			<% peli = Pelicula.find (id = seguirp.idp) %>
 			<img id="caratula" src="<%= peli.caratula %>" alt="Caratula Pelicula" height="200" width="200">
