@@ -1,33 +1,22 @@
-
+<div class="row-fluid">
+	<div class="span5 offset2">
+		<form class="form-search" action='search' >
+			<div class="input-append">
+    			<input name="pelicula" type="text" class="search-query">
+    			<button type="submit" class="btn" value='Search'>Search</button>
+ 			</div>
+		</form>
+	</div>
+</div>
 <% if @peliculas_busqueda.empty? %>
 	<div class="alert alert-error">
     	<a class="close" href="/">×</a>
     	<p>	<span>No hay resultados para su b&uacutesqueda</span><br/><br/></p>
     	<div class="alert-actions">
-        	<a class="btn small" id="again" href="/peliculas">realiza una nueva búsqueda</a> <a class="btn small" id="again" href="/peliculas">O agr&eacutegala t&uacute!</a>
+        	<a class="btn small" id="again" href="/#">realiza una nueva b&uacutesqueda</a> <a class="btn small" id="again" href="/peliculas">O mira todas las que tenemos!!</a>
     	</div>
   	</div>
-  	<div class="row-fluid">
-		<div class="span5 offset2">
-			<form class="form-search" action='search' >
-				<div class="input-append">
-    				<input name="pelicula" type="text" class="search-query">
-    				<button type="submit" class="btn" value='Search'>Search</button>
- 				</div>
-			</form>
-		</div>
-	</div>
 <% else %>
-   	<div class="row-fluid">
-		<div class="span5 offset2">
-			<form class="form-search" action='search' >
-				<div class="input-append">
-    				<input name="pelicula" type="text" class="search-query">
-    				<button type="submit" class="btn" value='Search'>Search</button>
- 				</div>
-			</form>
-		</div>
-	</div>
 	<% @peliculas_busqueda.each do |pelicula| %>
 		<br>
 		<br>
