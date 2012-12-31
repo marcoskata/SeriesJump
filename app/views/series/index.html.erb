@@ -25,7 +25,7 @@
 	      		    <%= button_to 'Destroy', series, confirm: 'Are you sure?', method: :delete %>
 	      		<% end %> 
 	      		<% if current_user.seguirs.where(idp: series.id ).exists? %> 
-				
+				<%= button_to "Dejar de seguir", {:controller => :seguirs, :action => 'destroy', :id => series.id}, class: "btn btn-danger",:method => :delete%> 
 				<p> La estas siguiendo </p>
     	
 				<% else %>

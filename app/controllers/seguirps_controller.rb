@@ -13,4 +13,13 @@ class SeguirpsController < ApplicationController
     @seguirps = Seguirp.all
   end
   
+  def destroy
+    @pelicula = current_user.seguirps.where(idp: params[:id] )[0].name
+    current_user.seguirps.where(idp: params[:id]).delete
+    respond_to do |format|
+      format.html { redirect_to "/peliculas", :notice => "You don't favorite to #{@pelicula} now" }
+      format.json { head :no_content }
+    end
+  end
+  
 end
