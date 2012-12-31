@@ -2,7 +2,7 @@ class FollowingsController < ApplicationController
    def create  
     @user = User.find(params[:user_id])  
     @following = @user.followings.create!(params[:following])  
-    redirect_to @user, :notice => "Follow created!"    
+    redirect_to "/following", :notice => "Follow created!"    
   end 
   
   def show
@@ -14,10 +14,10 @@ class FollowingsController < ApplicationController
   end
   
   def destroy
-    current_user.followings.where(idu: params[:id] ).delete
-    
+    @nombre = current_user.followings.where(idu: params[:id] )[0].name
+    current_user.followings.where(idu: params[:id]).delete
     respond_to do |format|
-      format.html { redirect_to :back }
+      format.html { redirect_to "/following", :notice => "You don't follow to #{@nombre} now" }
       format.json { head :no_content }
     end
   end
