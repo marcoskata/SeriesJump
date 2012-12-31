@@ -11,6 +11,7 @@ class User
   field :admin, type: Boolean, default: false
   attr_protected :provider, :uid, :name, :email, :admin
   embeds_many :followings
+  embeds_many :followers
   embeds_many :seguirps
   embeds_many :seguirs
 
