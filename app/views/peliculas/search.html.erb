@@ -1,10 +1,67 @@
-<% puts "fueraaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" %>
 
 <% if @peliculas_busqueda.empty? %>
-	<span>There were no results for your query</span><br/><br/>
+	<div class="alert alert-error">
+    	<a class="close" href="/">×</a>
+    	<p>	<span>No hay resultados para su b&uacutesqueda</span><br/><br/></p>
+    	<div class="alert-actions">
+        	<a class="btn small" id="again" href="/peliculas">realiza una nueva búsqueda</a> <a class="btn small" id="again" href="/peliculas">O agr&eacutegala t&uacute!</a>
+    	</div>
+  	</div>
+  	<div class="row-fluid">
+		<div class="span5 offset2">
+			<form class="form-search" action='search' >
+				<div class="input-append">
+    				<input name="pelicula" type="text" class="search-query">
+    				<button type="submit" class="btn" value='Search'>Search</button>
+ 				</div>
+			</form>
+		</div>
+	</div>
 <% else %>
-        
+   	<div class="row-fluid">
+		<div class="span5 offset2">
+			<form class="form-search" action='search' >
+				<div class="input-append">
+    				<input name="pelicula" type="text" class="search-query">
+    				<button type="submit" class="btn" value='Search'>Search</button>
+ 				</div>
+			</form>
+		</div>
+	</div>
 	<% @peliculas_busqueda.each do |pelicula| %>
-   		Result:  <%= link_to pelicula.nombre, Pelicula.find(pelicula.id), :controller => "peliculas" %> 
-	<% end %>
+		<br>
+		<br>
+   		<div class="row-fluid" id="peli_list">
+        	<div class="span1 offset2">
+   				<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
+      		</div>
+      		<div class="span3">
+   				<h2><%= link_to pelicula.nombre, pelicula %></h2>
+   				<ul>
+   					<li>Saga : <%= pelicula.saga %> </li>
+   					<li>Trailer : <a><%= pelicula.trailers %></a></li>
+   				</ul>
+      		</div>
+	        <div class="span2">
+	      		<%= link_to 'Show', pelicula %>
+	    		<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
+	    		<% if current_user.admin? %>
+	    		     <%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
+	    		<% end %> 
+	    		<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
+	    			<p> Ya la vistes </p>	
+	    		<% else %>
+	    			<%= form_for [current_user, Seguirp.new] do |f| %>  
+	    				<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
+	    				<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
+						<p><%= f.submit %></p>  
+					<% end %>
+				<% end %>
+	      	</div>
+   		</div>
+	<% end %> 
 <% end %>
+
+	
+
+
