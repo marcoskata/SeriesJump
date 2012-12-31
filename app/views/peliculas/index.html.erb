@@ -42,7 +42,7 @@
     		<% end %> 
     		<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
     			<p> Ya la vistes </p>
-    			<%= button_to "No favorita", {:controller => :seguirps, :action => 'destroy', :id => pelicula.id}, :method => :delete %> 
+    			<%= button_to "No favorita", {:controller => :seguirps, :action => 'destroy', :id => pelicula.id}, class: "btn btn-danger" ,:method => :delete %> 
     		<% else %>
     		<%= form_for [current_user, Seguirp.new] do |f| %>  
     			<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
