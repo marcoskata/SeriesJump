@@ -8,7 +8,7 @@
         }); 
     </script> 
 
-<h3>User Profile</h3>
+<h3>User Profilefddf</h3>
 <p>Name: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
   <% if current_user.followings.where(idu: @user.id ).exists? %> 
@@ -29,3 +29,83 @@
       <% end %>
   <% end %>
 <% end %>
+
+<div class="row-fluid">
+	   <div class="span4 offset2">
+	   		<h1> Series seguidas de <%= @user.name %> </h1> 
+		</div>
+	</div>
+		
+
+	<% @user.seguirs.each do |seguirp| %>
+	    <% serie = Series.find (id = seguirp.idp) %>
+			<br>
+			<br>
+   			<div class="row-fluid" id="peli_list">
+        		<div class="span1 offset2">
+   					<img id="caratula" src="<%= serie.caratula %>" alt="Caratula Pelicula" height="100" width="100">
+      			</div>
+      			<div class="span3">
+   					<h2><%= link_to serie.nombre, serie %></h2>
+   					<ul>
+   						<li>Sinopsis : <%= serie.sinopsis %> </li>
+   						<li>Director : <a><%= serie.director %></a></li>
+   					</ul>
+      			</div>
+	        	<div class="span2">
+	      			<%= link_to 'Show', serie %>
+	    			<%= link_to 'Edit', edit_series_path(serie) %>
+	    			<% if current_user.admin? %>
+					<%= button_to 'Destroy', serie, confirm: 'Are you sure?', method: :delete %>
+					<% end %> 
+					<% if current_user.seguirs.where(idp: serie.id ).exists? %> 
+					<p> Ya la vistes </p>
+					<%= button_to "No favorita", {:controller => :seguirs, :action => 'destroy', :id => serie.id}, class: "btn btn-danger" ,:method => :delete %> 
+					<% else %>
+	    				<%= form_for [current_user, Seguir.new] do |f| %>  
+	    					<p> <%= f.hidden_field :idp, :value => serie.id  %></p>  
+	    					<p> <%= f.hidden_field :name, :value => serie.nombre  %></p>
+							<p><%= f.submit %></p>  
+						<% end %>
+					<% end %>
+	      		</div>
+   			</div>
+		<% end %> 
+	</div>
+	<br />
+
+	<div class="row-fluid">
+	   <div class="span4 offset2">
+	   		<h1> Peliculas favoritas de <%= @user.name %></h1> 
+		</div>
+	</div>
+
+<% @user.seguirps.each do |seguirp| %>
+	    <% pelicula = Pelicula.find (id = seguirp.idp) %>
+			<br>
+			<br>
+   			<div class="row-fluid" id="peli_list">
+        		<div class="span1 offset2">
+   					<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
+      			</div>
+      			<div class="span3">
+   					<h2><%= link_to pelicula.nombre, pelicula %></h2>
+   					<ul>
+   						<li>Saga : <%= pelicula.saga %> </li>
+   						<li>Trailer : <a><%= pelicula.trailers %></a></li>
+   					</ul>
+      			</div>
+	        	<div class="span2">
+	      			
+	    			<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
+	    				<p> Ya la vistes </p>	
+	    			<% else %>
+	    				<%= form_for [current_user, Seguirp.new] do |f| %>  
+	    					<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
+	    					<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
+							<p><%= f.submit %></p>  
+						<% end %>
+					<% end %>
+	      		</div>
+   			</div>
+		<% end %> 
