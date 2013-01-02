@@ -50,6 +50,7 @@ SeriesJump::Application.routes.draw do
   match '/terms', to: 'static_pages#terms'
   match '/usuarios' => 'home#index'
   match '/following' => 'users#following'
+  match '/follower' => 'users#follower'
   match '/seguirp' => 'users#seguirp'
   match '/search' => 'peliculas#search'
   
