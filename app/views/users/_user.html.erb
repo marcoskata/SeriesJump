@@ -1,3 +1,14 @@
+<script> 
+        // wait for the DOM to be loaded 
+        $(document).ready(function() { 
+            // bind 'myForm' and provide a simple callback function 
+            $('#form-2').ajaxForm(function() { 
+            	document.getElementById('form-1').submit();
+}); 
+        }); 
+    </script> 
+
+
 <li>
   
   <% if current_user.followings.where(idu: user.id ).exists? %> 
@@ -5,11 +16,17 @@
 	  <%= button_to "Unfollow", {:controller => :followings, :action => 'destroy', :id => user.id}, :method => :delete %> 
 <% else %>
  <%= user.name %>
-  <%= form_for [current_user, Following.new] do |f| %>  
+  <%= form_for [current_user, Following.new], :html => { :id => "form-1" } do |f| %>  
       <% if current_user.id != user.id %>
          <p> <%= f.hidden_field  :idu, :value => user.id  %></p>
-         <p> <%= f.hidden_field  :name, :value => user.name  %></p>  
-         <p><%= f.submit %></p>  
+         <p> <%= f.hidden_field :name, :value => user.name  %></p>  
+      <% end %>
+  <% end %>
+  <%=  form_for  [user, Follower.new], :html => { :id => "form-2" } do |h| %>  
+      <% if current_user.id != user.id %>
+         <p> <%= h.hidden_field  :idu, :value => current_user.id  %></p>
+         <p> <%= h.hidden_field :name, :value => current_user.name  %></p>  
+         <p> <%= h.submit Seguir%> </p>  
       <% end %>
   <% end %>
   <% if current_user.admin? %>
@@ -17,3 +34,4 @@
   <% end %>
 <% end %>
 </li>
+
