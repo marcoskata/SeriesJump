@@ -1,0 +1,11 @@
+<% flash.each do |name, msg| %>
+	<% if msg.is_a?(String) %>
+    	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+<% end %>
+
+
+<h3>followers</h3>
+<% current_user.followers.each do |user| %>
+   <%= link_to user.name, User.find(user.idu), :controller => "users" %> 
+<% end %>
