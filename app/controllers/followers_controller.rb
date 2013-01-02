@@ -17,7 +17,7 @@ class FollowersController < ApplicationController
     @nombre = current_user.followers.where(idu: params[:id] )[0].name
     current_user.followers.where(idu: params[:id]).delete
     respond_to do |format|
-      format.html { redirect_to "/following", :notice => "You don't follow to #{@nombre} now" }
+      format.html { redirect_to "/following" }
       format.json { head :no_content }
     end
   end
