@@ -3,7 +3,7 @@
 body {  
 	padding-top: 60px;  
 	padding-bottom: 40px;  
-	font-family: Lobster;
+	font-family: Arimo;
     min-height: 740px;
     
 	background-color: #eee; 
@@ -24,10 +24,11 @@ body {
 }  
 
 
-h1 {
-	font-family: 'Molle';
+h1, h2, h3, h4, h5, a#Jump.brand, a {
+	font-family: 'Lobster';
 
 }
+
 
 #img_init {
 

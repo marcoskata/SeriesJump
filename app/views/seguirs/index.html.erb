@@ -30,7 +30,7 @@
 					<% end %> 
 					<% if current_user.seguirs.where(idp: serie.id ).exists? %> 
 					<p> Ya la vistes </p>
-					<%= button_to "No favorita", {:controller => :seguirs, :action => 'destroy', :id => serie.id}, class: "btn btn-danger" ,:method => :delete %> 
+					<%= button_to "Dejar de seguir", {:controller => :seguirs, :action => 'destroy', :id => serie.id}, class: "btn btn-danger" ,:method => :delete %> 
 					<% else %>
 	    				<%= form_for [current_user, Seguir.new] do |f| %>  
 	    					<p> <%= f.hidden_field :idp, :value => serie.id  %></p>  

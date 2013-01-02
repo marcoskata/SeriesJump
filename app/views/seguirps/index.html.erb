@@ -21,14 +21,14 @@
    					</ul>
       			</div>
 	        	<div class="span2">
-	      			<%= link_to 'Show', pelicula %>
+	      		<%= link_to 'Show', pelicula %>
 	    			<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
 	    			<% if current_user.admin? %>
-					<%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
+						<%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
 					<% end %> 
 					<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
-					<p> Ya la vistes </p>
-					<%= button_to "No favorita", {:controller => :seguirps, :action => 'destroy', :id => pelicula.id}, class: "btn btn-danger" ,:method => :delete %> 
+						<p> Ya la vistes </p>
+					<%= button_to "Dejar de seguir", {:controller => :seguirps, :action => 'destroy', :id => pelicula.id}, class: "btn btn-danger" ,:method => :delete %> 
 					<% else %>
 	    				<%= form_for [current_user, Seguirp.new] do |f| %>  
 	    					<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
