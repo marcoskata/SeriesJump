@@ -77,64 +77,109 @@
 </div>
 
 <div class="row-fluid">
-	<div class="span6">  
-		<h2>Nuevo Link</h2>  
-       	<%= form_for [@pelicula, Link.new] do |f| %>  
-			<h3><%= f.label :url %><%= f.text_field :url %></h3>  
-            <h3><%= f.label :idioma %><%= f.text_field :idioma %></h3> 
-            <h3><%= f.label :servidor %><%= f.text_field :servidor %></h3>  
-            <h3><%= f.label :online %><%= f.text_field :online %></h3>   
-            <h3><%= f.submit %></h3>  
-        <% end %>  
-	</div>
-</div>
-<div class="row-fluid">
-	<div class="span6" >
-		<% if @pelicula.links.size > 0 %>  
-        	<h2>Links</h2>  
-			<div class="span3">
-            	<div id="example" class="modal hide fade in" style="display: none; ">
-                	<div class="modal-header">
-                    	<a class="close" data-dismiss="modal">×</a>
-                        	<h3><%= @pelicula.nombre %> </h3>
-                    </div>
-                    <div class="modal-body">
-               			<% for link in @pelicula.links %>  
-                  			<h3>url:</h3> <h4><%= link.url %></h4>  
-                  			<h3>Idioma:</h3> <h4><%= link.idioma %></h4> 
-                  			<h3>servidor:</h3> <h4><%= link.servidor %></h4> 
-                  			<h3>online:</h3> <h4><%= link.online %></h4> 
-               			<% end %>
-                     </div>
-                     <div class="modal-footer">
-                        <a href="#" class="btn btn-success">Call to action</a>
-                        <a href="#" class="btn" data-dismiss="modal">Cerrar</a>
-                     </div>
-                </div>
-                <p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>
-        	</div>
-		<% end %>
+	<div class="span10 offset1">
+		<div id="myCollapsibleExample2">
+	 		<h1><a href="#more_info2" data-toggle="collapse"> Todos los Links para ver online! </a></h1>
+	 	</div>
+	 	<div id="more_info2" class="collapse">
+			<% if @pelicula.links.size > 0 %>  
+				<% for link in @pelicula.links %> 
+					<% if link.online == true%> 
+				    	<h5> Url: </h5>
+	                	<h5> <a href="<%= link.url  %>"> <%= link.url  %></a> </h5> 
+		                <div class="row-fluid">
+		                	<div class="span2">
+		                  		<h5>Idioma:</h5> <p><%= link.idioma %></p>
+		                  	</div> 
+		                  	<div class="span2">
+		                  		<h5>Servidor:</h5> <p><%= link.servidor %></p> 
+		                  	</div>
+	                    </div>
+		             <% end %>
+		    	<% end %>
+		    <% else %>	
+		    	 <h5> ¡ An&iacutemate a añadir un Link para esta pel&aacutecula !</h5>
+	        <% end %>
+	   	</div>
 	</div>
 </div>
 
-<div class="row-fluid">      
-    <h2>Comments</h2>
-    <% if @pelicula.comments.size > 0 %>  
-        <% for comment in @pelicula.comments %>
-            <div class="row-fluid"> 
-            	<div class="span4 offset1"> 
-					<h4><%= comment.name %></h4> 
-		        </div>
-		    </div>
-		    <div class="row-fluid"> 
-				<div class="span8 offset2">
-					<p><%= comment.content %></p> 
+<div class="row-fluid">
+	<div class="span10 offset1">
+		<div id="myCollapsibleExample3">
+	 		<h1><a href="#more_info3" data-toggle="collapse"> Todos los Links para descargarte la peli! </a></h1>
+	 	</div>
+	 	<div id="more_info3" class="collapse">
+			<% if @pelicula.links.size > 0 %>  
+				<% for link in @pelicula.links %> 
+					<% if link.online == false %> 
+				    	<h5> Url: </h5>
+	                	<h5> <a href="<%= link.url  %>"> <%= link.url  %></a> </h5> 
+		                <div class="row-fluid">
+		                	<div class="span2">
+		                  		<h5>Idioma:</h5> <p><%= link.idioma %></p>
+		                  	</div> 
+		                  	<div class="span2">
+		                  		<h5>Servidor:</h5> <p><%= link.servidor %></p> 
+		                  	</div>
+	                 	</div>
+		             <% end %>
+		        <% end %>
+		    <% else %>	
+		    	<h5> ¡ An&iacutemate a añadir un Link para esta pel&aacutecula !</h5>
+	        <% end %>
+	   	</div>
+	</div>
+</div>
+
+<div class="row-fluid">
+	<div class="span10 offset1">
+		<h4> Colabora con esta comunidad </h4>  
+		<div class="span3">
+	    	<div id="add_link" class="modal hide fade in" style="display: none; ">
+	        	<div class="modal-header">
+	            	<a class="close" data-dismiss="modal">×</a>
+	               	<h3><%= @pelicula.nombre %> </h3>
+	            </div>
+	            <div class="modal-body">
+	            	<%= form_for [@pelicula, Link.new] do |f| %>  
+						<h3><%= f.label :url %><%= f.text_field :url %></h3>  
+			            <h3><%= f.label :idioma %><%= f.text_field :idioma %></h3> 
+			            <h3><%= f.label :servidor %><%= f.text_field :servidor %></h3>  
+			            <h3><%= f.label :online %><%= f.text_field :online %></h3>   
+			            <h3><%= f.submit %></h3>  
+			        <% end %>  
+			    </div>
+	            <div class="modal-footer">
+	            	<a href="#" class="btn btn-success">Call to action</a>
+	                <a class="close btn" data-dismiss="modal">Salir</a>
+	            </div>
+	        </div>
+	    	<p><a data-toggle="modal" href="#add_link" class="btn btn-primary btn-large">¡ Agrega un nuevo link !</a></p>
+	   </div>
+	</div>
+</div>
+
+<div class="row-fluid">
+	<div class="span10 offset1">      
+	    <h2>Comments</h2>
+	    <% if @pelicula.comments.size > 0 %>  
+	        <% for comment in @pelicula.comments %>
+	            <div class="row-fluid"> 
+	            	<div class="span4 offset1"> 
+						<h4><%= comment.name %></h4> 
+			        </div>
+			    </div>
+			    <div class="row-fluid"> 
+					<div class="span8 offset2">
+						<p><%= comment.content %></p> 
+					</div>
 				</div>
-			</div>
+			<% end %>  
+		<% else %>
+			 <h5> ¡ An&iacutemate a escribir el primer comentario de esta pelicula !</h5>
 		<% end %>  
-	<% else %>
-		 <h5> ¡ Animate a escribir el primer comentario de esta pelicula !</h5>
-	<% end %>  
+	</div>
 </div>
 
 <div class="row-fluid">      
@@ -142,7 +187,7 @@
     	<h2>Nuevo Comentario</h2>  
         <%= form_for [@pelicula, Comment.new] do |f| %>  
            	<p><%= f.hidden_field :name, :value => current_user.name  %>  </p> 
-            <p><%= f.text_area :content, :rows => 10, :cols => 4 %></p>  
+            <p><%= f.text_area :content, :rows => 10, :cols => 70 , :placeholder => "Escribe lo que quieras... ",  :class => "input-xxlarge" %>  </p>  
             <p><%= f.submit %></p>  
         <% end %> 
 	</div>
