@@ -27,6 +27,9 @@ db/*.sqlite3
 .rspec
 .redcar/
 .sass-cache
+/config/mongoid.yml
+/config/_mongoid.yml
+/config/mongoid.yml*
 /config/config.yml
 /config/database.yml
 /coverage.data
