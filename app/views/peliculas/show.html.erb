@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row-fluid" id="pelicula_show">
+<div class="row-fluid" id="pelicula_show" align ="center">
 	<h1><%=  @pelicula.nombre %></h1>
 </div>
 
@@ -40,7 +40,7 @@
    	  	    	<h5> Trailer: </h5> 
    	  	    </div>
    	  	    <div class="span6">
-   	  	    	<h5><%= @pelicula.trailers  %> </h5>
+   	  	    	<a href="<%= @pelicula.trailers  %>"> <%= @pelicula.trailers  %></a> 
 		    </div>
    	  	 </div> 
    	  	 <div id="myCollapsibleExample">
