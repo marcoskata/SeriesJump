@@ -187,7 +187,7 @@
     	<h2>Nuevo Comentario</h2>  
         <%= form_for [@pelicula, Comment.new] do |f| %>  
            	<p><%= f.hidden_field :name, :value => current_user.name  %>  </p> 
-            <p><%= f.text_area :content, :rows => 10, :cols => 70 , :placeholder => "Escribe lo que quieras... ",  :class => "input-xxlarge" %>  </p>  
+            <p><%= f.text_area :content, :rows => 10, :cols => 70 , :placeholder => "Escribe lo que quieras ...", :class => "input-xxlarge" %>  </p>  
             <p><%= f.submit %></p>  
         <% end %> 
 	</div>
