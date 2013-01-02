@@ -21,48 +21,43 @@
 </div>
 
 <% @peliculas.each do |pelicula| %>
-<br>
-<br>
-   <div class="row-fluid" id="peli_list">
-  
-      <div class="span1 offset2">
-   		<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
-      </div>
-      <div class="span3">
-   		<h2><%= link_to pelicula.nombre, pelicula %></h2>
-   		<ul>
-   			<li>Saga : <%= pelicula.saga %> </li>
-   			<li>Trailer : <a><%= pelicula.trailers %></a></li>
-   		</ul>
-      </div>
-      <div class="span2">
-      	<%= link_to 'Show', pelicula %>
-    		<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
-    		<% if current_user.admin? %>
-    		     <%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
-    		<% end %> 
-    		<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
-    			<p> Ya la vistes </p>
-    			<%= button_to "No favorita", {:controller => :seguirps, :action => 'destroy', :id => pelicula.id}, class: "btn btn-danger" ,:method => :delete %> 
-    		<% else %>
-    		<%= form_for [current_user, Seguirp.new] do |f| %>  
-    			<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
-    			<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
-				<p><%= f.submit %></p>  
+	<br>
+	<br>
+   	<div class="row-fluid" id="peli_list">
+    	<div class="span1 offset2">
+   			<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
+      	</div>
+      	<div class="span4">
+   			<h2><%= link_to pelicula.nombre, pelicula %></h2>
+   			<ul>
+   				<li><h5> Saga: </h5> 
+   	  	    		<p><%= pelicula.saga %> </p>
+		    	</li>
+   				<li> <h5> Trailer: </h5> 
+   	  	    		<p> <a href="<%= pelicula.trailers  %>"> <%= pelicula.trailers  %></a> </p> 
+		    	</li>
+   			</ul>
+      	</div>
+	    <div class="span2">
+	    	<%= link_to 'Show', pelicula %> |
+	    	<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
+	    	<% if current_user.admin? %>
+	    	     <%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
+	    	<% end %> 
+	    	<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
+	    		<p> Ya la vistes </p>	
+	    	<% else %>
+	    		<%= form_for [current_user, Seguirp.new] do |f| %>  
+	    			<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
+	    			<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
+					<p><%= f.submit %></p>  
+				<% end %>
 			<% end %>
-		<% end %>
-      
-      </div>
-   </div>
-
-
+	    </div>
+   	</div>
+</div>
 <% end %> 
-
-
 <div class='apple_pagination'><%= will_paginate @pelis %></div> 
-
-
-
 <br />
 
 <% else %>
