@@ -8,7 +8,7 @@
         }); 
     </script> 
 
-<h3>User Profilefddf</h3>
+<h3>User Profile</h3>
 <p>Name: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
   <% if current_user.followings.where(idu: @user.id ).exists? %> 
