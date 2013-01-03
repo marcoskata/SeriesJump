@@ -33,7 +33,7 @@
 </div>
 </div>
 <div class="row-fluid">
-	   <div class="span8 offset2">
+	   <div class="span10 offset2">
 		<div id="myCollapsibleExample">
         <h2><a href="#more_info" data-toggle="collapse">Series seguidas de <%= @user.name %></a></h2>
       </div>
@@ -46,7 +46,7 @@
         		<div class="span1 offset2">
    					<img id="caratula" src="<%= serie.caratula %>" alt="Caratula Pelicula" height="100" width="100">
       			</div>
-      			<div class="span3">
+      			<div class="span5">
    					<h2><%= link_to serie.nombre, serie %></h2>
    					<ul>
    						<li>Sinopsis : <%= serie.sinopsis %> </li>
@@ -65,7 +65,7 @@
 	</div>
 </div>
 	<div class="row-fluid">
-	   <div class="span8 offset2">
+	   <div class="span10 offset2">
 			<div id="myCollapsibleExample">
          	<h2><a href="#more_info2" data-toggle="collapse">Peliculas favoritas de <%= @user.name %></a></h2>
        	</div>
@@ -78,7 +78,7 @@
         		<div class="span1 offset2">
    					<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
       			</div>
-      			<div class="span3">
+      			<div class="span5">
    					<h2><%= link_to pelicula.nombre, pelicula %></h2>
    					<ul>
    						<li>Saga : <%= pelicula.saga %> </li>
