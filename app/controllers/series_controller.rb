@@ -81,4 +81,21 @@ class SeriesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def search2
+      @series_busqueda = []
+      begin
+        serie = Series.where(nombre: /.*#{params[:serie]}.*/i ) 
+        serie.each do |p| 
+          @series_busqueda << Series.find(p)
+        end
+        rescue
+           @series_busqueda = []
+      end
+      puts @series_busqueda
+       respond_to do |format|
+          format.html { }
+          format.json { head :no_content }
+      end
+   end
 end

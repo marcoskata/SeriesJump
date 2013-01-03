@@ -52,7 +52,8 @@ SeriesJump::Application.routes.draw do
   match '/following' => 'users#following'
   match '/follower' => 'users#follower'
   match '/seguirp' => 'users#seguirp'
-  match '/search' => 'peliculas#search'
+  match '/search' => 'peliculas#search', :as => :search
+  match '/search2' => 'series#search2', :as => :search2
   
   
 	match '/auth/:provider/callback' => 'sessions#create'

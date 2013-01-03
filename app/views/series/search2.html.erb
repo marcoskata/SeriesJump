@@ -1,26 +1,28 @@
-<% if user_signed_in? %>
-	<div class="row-fluid">
-		<div class="span5 offset2">
-			<form class="form-search" action='search2' >
-				<div class="input-append">
-	    			<input name="serie" type="text" class="search-query">
-	    			<button type="submit" class="btn" value='Search'>Search</button>
-	 			</div>
-			</form>
-		</div>
-		<div class="span2">
-			<%= link_to 'New Series', new_series_path %>
-		</div>	
+<div class="row-fluid">
+	<div class="span5 offset2">
+		<form class="form-search2" action='search2' >
+			<div class="input-append">
+    			<input name="serie" type="text" class="search-query">
+    			<button type="submit" class="btn" value='Search'>Search</button>
+ 			</div>
+		</form>
 	</div>
-	<div class="row-fluid">
-		 <div class="span4 offset3">
-			<h1>Listing Series</h1>
-		</div>	
-	</div>
-	<% @series.each do |series| %>
-	<br>
-	<br>
-	   	<div class="row-fluid" id="peli_list">
+</div>
+
+<% if @series_busqueda.empty? %>
+	<div class="alert alert-error">
+    	<a class="close" href="/">×</a>
+    	<p>	<span>No hay resultados para su b&uacutesqueda</span><br/><br/></p>
+    	<div class="alert-actions">
+        	<a class="btn small" id="again" href="#">realiza una nueva b&uacutesqueda</a>
+        	<a class="btn small" id="again" href="/series">O mira todas las que tenemos!!</a>
+    	</div>
+  	</div>
+<% else %>
+	<% @series_busqueda.each do |series| %>
+		<br>
+		<br>
+   			<div class="row-fluid" id="serie_list">
 	    	<div class="span1 offset2">
 		   			<img id="caratula" src="<%= series.caratula %>" alt="Caratula Serie" height="100px" width="100px">
 	      	</div>
@@ -47,18 +49,8 @@
 	   	</div>
 	</div>
 	<% end %> 
-
-<div class='apple_pagination'><%= will_paginate @series %></div>
-<br />
-
-<% else %>
-
-<div class="alert alert-error">
-  <a class="close" href="/">×</a>
-  <p>No tienes permisos para acceder a las <strong> Series </strong></p>
-  <div class="alert-actions">
-  	   <a class="btn small"  id="Jump" href="/">Inicia sesion</a> <a class="btn small" id="Jump" href="/terms">O con&oacutecenos antes!</a>
-  </div>
-</div>
-
 <% end %>
+
+	
+
+
