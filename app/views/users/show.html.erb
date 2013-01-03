@@ -7,7 +7,8 @@
 }); 
         }); 
     </script> 
-
+<div class="row-fluid">
+<div class="span4 offset2">
 <h3>User Profile</h3>
 <p>Name: <%= @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
@@ -29,7 +30,8 @@
       <% end %>
   <% end %>
 <% end %>
-
+</div>
+</div>
 <div class="row-fluid">
 	   <div class="span4 offset2">
 	   		<h2> Series seguidas de <%= @user.name %> </h2> 
