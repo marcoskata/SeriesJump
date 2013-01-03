@@ -62,7 +62,26 @@
  	 				<h3><%= f.submit %></h3>  
 				<% end %>
 			</div>
-			<div class="span6" >
+		</div>		
+<div class="row-fluid">			
+	<div class="tabbable tabs-left">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#lA" data-toggle="tab">Temporada1</a></li>
+          <li><a href="#lB" data-toggle="tab">Temporada 2</a></li>
+          <li><a href="#lC" data-toggle="tab">Temporada 3</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="lA">
+            <p>Capitulos Temporada1</p>
+          </div>
+          <div class="tab-pane" id="lB">
+            <p>Capitulos Temporada2</p>
+          </div>
+          <div class="tab-pane" id="lC">
+            <p>Capitulos Temporada3</p>
+          </div>
+        </div>
+</div>
 				<% if @series.capitulos.size > 0 %>  
   					<h2> Capitulos </h2>
 					<div class="row-fluid">
