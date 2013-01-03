@@ -3,7 +3,7 @@ class SeriesController < ApplicationController
   # GET /series.json
   def index
     #@series = Series.page(params[7]).per(20)
-    @series = Series.paginate(:page => params[:page], :per_page => 5)
+    @series = Series.order_by(:nombre.asc).paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @series }

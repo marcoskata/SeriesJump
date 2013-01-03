@@ -44,7 +44,7 @@
 	               <ul class="dropdown-menu">
                  	  <li><a href="/follower">Seguidores</a></li>
                  	  <li><a href="/following">Siguiendo</a></li>
-                 	  <li><a href="#">Perfil de usuario</a></li>
+                 	  <li><%= link_to "Tu perfil", User.find(current_user.id), :controller => "users" %> </li>
                  	  <li> <%= link_to('Logout', signout_path) %> </li>
                  	  <li class="divider"></li>
                  	  <li class="nav-header">Edit</li>

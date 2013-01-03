@@ -3,7 +3,7 @@ class PeliculasController < ApplicationController
   # GET /peliculas.json
   def index
     
-	@peliculas = Pelicula.paginate(:page => params[:page], :per_page => 5)
+	@peliculas = Pelicula.order_by(:nombre.asc).paginate(:page => params[:page], :per_page => 5)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @peliculas }

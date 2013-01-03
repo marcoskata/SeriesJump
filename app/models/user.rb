@@ -14,7 +14,6 @@ class User
   embeds_many :followers
   embeds_many :seguirps
   embeds_many :seguirs
-
   def self.create_with_omniauth(auth)
   create! do |user|
     user.provider = auth['provider']

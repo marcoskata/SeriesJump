@@ -1,6 +1,6 @@
 class HomeController < ApplicationController
   def index
-    @users = User.all
+     @users = User.order_by(:name.asc)
   end
 end
 
