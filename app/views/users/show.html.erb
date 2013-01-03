@@ -33,13 +33,12 @@
 </div>
 </div>
 <div class="row-fluid">
-	   <div class="span4 offset2">
-	   		<h2> Series seguidas de <%= @user.name %> </h2> 
-		</div>
-	</div>
-		
-
-	<% @user.seguirs.each do |seguirp| %>
+	   <div class="span8 offset2">
+		<div id="myCollapsibleExample">
+        <h2><a href="#more_info" data-toggle="collapse">Series seguidas de <%= @user.name %></a></h2>
+      </div>
+      <div id="more_info" class="collapse">
+		<% @user.seguirs.each do |seguirp| %>
 	    <% serie = Series.find (id = seguirp.idp) %>
 			<br>
 			<br>
@@ -63,17 +62,18 @@
 		<% end %> 
 	</div>
 	<br />
-
-	<div class="row-fluid">
-	   <div class="span4 offset2">
-	   		<h2> Peliculas favoritas de <%= @user.name %></h2> 
-		</div>
 	</div>
-
-<% @user.seguirps.each do |seguirp| %>
-	    <% pelicula = Pelicula.find (id = seguirp.idp) %>
-			<br>
-			<br>
+</div>
+	<div class="row-fluid">
+	   <div class="span8 offset2">
+			<div id="myCollapsibleExample">
+         	<h2><a href="#more_info2" data-toggle="collapse">Peliculas favoritas de <%= @user.name %></a></h2>
+       	</div>
+       	<div id="more_info2" class="collapse">
+				<% @user.seguirps.each do |seguirp| %>
+	    		<% pelicula = Pelicula.find (id = seguirp.idp) %>
+				<br>
+				<br>
    			<div class="row-fluid" id="peli_list">
         		<div class="span1 offset2">
    					<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
@@ -90,4 +90,5 @@
     		     <%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
     		<% end %> 
    			</div>
-		<% end %> 
+		<% end %>
+	</div>
