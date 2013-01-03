@@ -89,7 +89,7 @@
 				<% for link in @pelicula.links %> 
 					<% if link.online == true%> 
 				    	<h5> Url: </h5>
-	                	<h5> <a href="<%= link.url  %>"> <%= link.url  %></a> </h5> 
+	                	<h5> <a href="<%= link.url  %>" target="_blank"> <%= link.url  %></a> </h5> 
 		                <div class="row-fluid">
 		                	<div class="span2">
 		                  		<h5>Idioma:</h5> <p><%= link.idioma %></p>
@@ -117,7 +117,7 @@
 				<% for link in @pelicula.links %> 
 					<% if link.online == false %> 
 				    	<h5> Url: </h5>
-	                	<h5> <a href="<%= link.url  %>"> <%= link.url  %></a> </h5> 
+	                	<h5> <a href="<%= link.url  %>"target="_blank" > <%= link.url  %></a> </h5> 
 		                <div class="row-fluid">
 		                	<div class="span2">
 		                  		<h5>Idioma:</h5> <p><%= link.idioma %></p>
