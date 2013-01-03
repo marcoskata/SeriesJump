@@ -64,64 +64,52 @@
 	</div>
 </div>		
 
+<% if @series.capitulos.size > 0 %>
+	
+<% end %>
 
 
 <div class="row-fluid">			
 	<div class="tabbable">
   		<ul class="nav nav-tabs">
-  		<% if @series.capitulos.size > 0 %> 
-  		 	   <% if @series.capitulos.any?{ |c| c.temporada == 1 } %>
-  		    <li class="active">
-    			<a href="#tab1" data-toggle="tab">Temporada 1</a>
-    		</li>
-    		<% end %>
-    		<% if @series.capitulos.any?{ |c| c.temporada == 2 } %>
-  		    <li>
-    			<a href="#tab2" data-toggle="tab">Temporada 2</a>
-    		</li>
-    		<% end %>
-    		<% if @series.capitulos.any?{ |c| c.temporada == 3 } %>
-  		    <li>
-    			<a href="#tab3" data-toggle="tab">Temporada 3</a>
-    		</li>
-    		<% end %>
-    		<% if @series.capitulos.any?{ |c| c.temporada == 4 } %>
-  		    <li>
-    			<a href="#tab4" data-toggle="tab">Temporada 4</a>
-    		</li>
-    		<% end %>
-    		<% if @series.capitulos.any?{ |c| c.temporada == 5 } %>
-  		    <li>
-    			<a href="#tab5" data-toggle="tab">Temporada 5</a>
-    		</li>
-    		<% end %>
-  			<% if @series.capitulos.any?{ |c| c.temporada == 6 } %>
-  		    <li>
-    			<a href="#tab6" data-toggle="tab">Temporada 6</a>
-    		</li>
-    		<% end %>
-  		
-  		<% end %>
+	  		<% if @series.capitulos.size > 0 %>
+	  			<% temp_max = 0 %>
+  				<% @series.capitulos.each do |c| %>
+	  				<% if c.temporada > temp_max %>
+	  					<%  temp_max = c.temporada %>
+	  				<% end %>
+	    		<% end %>
+    			<h1>TEMPORADAS TOTALES = <%= temp_max %> </h1>
+	  			<% for i in 1..temp_max do %>
+		  			<% all_c = [] %>
+		  			<% @series.capitulos.select { |c| if c.temporada == i; all_c <<  c end  } %>
+		  			<% if i == 1 %>
+	  					<li class="active">
+	  				<% else %>
+	  					<li>
+	  				<% end %>		
+		    			<a href="#tab<%=i%>" data-toggle="tab">Temporada  <%= i %></a>
+		    		</li>
+	  			<% end %>  
+	  		<% end %>
   		</ul>
-
   		<div class="tab-content">
-  			<% if @series.capitulos.any?{ |c| c.temporada == 1 } %>
-  		  		<div class="tab-pane active" id="tab1">
-    				<p>Dentro Temporada 1.</p>
-      				<% for capitulo in @series.capitulos %>   
-	  					<% if capitulo.temporada == 1 %>
-	  						<div class="row-fluid">
-		  						<div class="span1">
-									<h4>Temp <%=capitulo.temporada %></h4>
-								</div>
-								<div class="span1">
-									<h4>Cap <%= capitulo.cap %></h4>
+  			<% for i in 1..temp_max do %>
+		  			<% all_c = [] %>
+		  			<% @series.capitulos.select { |c| if c.temporada == i; all_c <<  c end  } %>
+		  			<% if i == 1 %>
+	  					<div class="tab-pane active" id="tab1">
+	  				<% else %>
+	  					<div class="tab-pane" id="tab<%=i%>">
+	  				<% end %>
+	  				<% all_c.each do |capitulo| %>
+	  					<% if capitulo.temporada == i %>
+	  				  		<div class="row-fluid">
+		  						<div class="span4">
+									<h4>Cap <%= capitulo.titulo %></h4>
 								</div>
 								<div class="span3">
-									<h4>Titulo <%= capitulo.titulo %></h4>
-								</div>
-								<div class="span3">
-									<div id="example" class="modal hide fade in" style="display: none; ">  
+									<div id="example<%=i%>" class="modal hide fade in" style="display: none; ">  
 										<div class="modal-header">  
 											<a class="close" data-dismiss="modal">×</a>  
 											<h3><%= capitulo.titulo %> </h3>  
@@ -134,245 +122,18 @@
 											<a href="#" class="btn" data-dismiss="modal">Cerrar</a>  
 										</div>  
 									</div>  
-									<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>  
+									<p><a data-toggle="modal" href="#example<%=i%>" class="btn btn-primary btn-large">Mostrar Links</a></p>  
 								</div>
 							</div>
-						<% end %>	
-	    			<% end %>
-	    		</div>		
-    		<% end %>	
-    		<% if @series.capitulos.any?{ |c| c.temporada == 2 } %>
-  		  		<div class="tab-pane" id="tab2">
-	      			<p>Dentro Temporada 2.</p>
-	      			<% for capitulo in @series.capitulos %>   
-	  					<% if capitulo.temporada == 2 %>
-	  						<div class="row-fluid">
-		  						<div class="span1">
-									<h4>Temp <%=capitulo.temporada %></h4>
-								</div>
-								<div class="span1">
-									<h4>Cap <%= capitulo.cap %></h4>
-								</div>
-								<div class="span3">
-									<h4>Titulo <%= capitulo.titulo %></h4>
-								</div>
-								<div class="span3">
-									<div id="example" class="modal hide fade in" style="display: none; ">  
-										<div class="modal-header">  
-											<a class="close" data-dismiss="modal">×</a>  
-											<h3><%= capitulo.titulo %> </h3>  
-										</div>  
-										<div class="modal-body">  
-											<h4><a href="<%= capitulo.link  %>" target="_blank"> <%= capitulo.link  %></a></h4>
-										</div>  
-										<div class="modal-footer">  
-											<a href="#" class="btn btn-success">Call to action</a>  
-											<a href="#" class="btn" data-dismiss="modal">Cerrar</a>  
-										</div>  
-									</div>  
-									<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>  
-								</div>
-							</div>
-						<% end %>	
-	    			<% end %>	
-	    		</div>
-   			<% end %>	
-    		<% if @series.capitulos.any?{ |c| c.temporada == 3 } %>
-	  		  	<div class="tab-pane" id="tab3">
-	      			<p>Dentro Temporada 3.</p>
-	      			<% for capitulo in @series.capitulos %>   
-	  					<% if capitulo.temporada == 3 %>
-	 						<div class="row-fluid">
-		  						<div class="span1">
-									<h4>Temp <%=capitulo.temporada %></h4>
-								</div>
-								<div class="span1">
-									<h4>Cap <%= capitulo.cap %></h4>
-								</div>
-								<div class="span3">
-									<h4>Titulo <%= capitulo.titulo %></h4>
-								</div>
-								<div class="span3">
-									<div id="example" class="modal hide fade in" style="display: none; ">  
-										<div class="modal-header">  
-											<a class="close" data-dismiss="modal">×</a>  
-											<h3><%= capitulo.titulo %> </h3>  
-										</div>  
-										<div class="modal-body">  
-											<h4><a href="<%= capitulo.link  %>" target="_blank"> <%= capitulo.link  %></a></h4>
-										</div>  
-										<div class="modal-footer">  
-											<a href="#" class="btn btn-success">Call to action</a>  
-											<a href="#" class="btn" data-dismiss="modal">Cerrar</a>  
-										</div>  
-									</div>  
-									<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>  
-								</div>
-							</div>
-						<% end %>	
-	    			<% end %>	
-	    		</div>
-			<% end %>
-			<% if @series.capitulos.any?{ |c| c.temporada == 4 } %>
-	  		  	<div class="tab-pane" id="tab3">
-	      			<p>Dentro Temporada 3.</p>
-	      			<% for capitulo in @series.capitulos %>   
-	  					<% if capitulo.temporada == 4 %>
-	 						<div class="row-fluid">
-		  						<div class="span1">
-									<h4>Temp <%=capitulo.temporada %></h4>
-								</div>
-								<div class="span1">
-									<h4>Cap <%= capitulo.cap %></h4>
-								</div>
-								<div class="span3">
-									<h4>Titulo <%= capitulo.titulo %></h4>
-								</div>
-								<div class="span3">
-									<div id="example" class="modal hide fade in" style="display: none; ">  
-										<div class="modal-header">  
-											<a class="close" data-dismiss="modal">×</a>  
-											<h3><%= capitulo.titulo %> </h3>  
-										</div>  
-										<div class="modal-body">  
-											<h4><a href="<%= capitulo.link  %>" target="_blank"> <%= capitulo.link  %></a></h4>
-										</div>  
-										<div class="modal-footer">  
-											<a href="#" class="btn btn-success">Call to action</a>  
-											<a href="#" class="btn" data-dismiss="modal">Cerrar</a>  
-										</div>  
-									</div>  
-									<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>  
-								</div>
-							</div>
-						<% end %>	
-	    			<% end %>	
-	    		</div>
-			<% end %>
-			<% if @series.capitulos.any?{ |c| c.temporada == 5 } %>
-	  		  	<div class="tab-pane" id="tab3">
-	      			<p>Dentro Temporada 3.</p>
-	      			<% for capitulo in @series.capitulos %>   
-	  					<% if capitulo.temporada == 5 %>
-	 						<div class="row-fluid">
-		  						<div class="span1">
-									<h4>Temp <%=capitulo.temporada %></h4>
-								</div>
-								<div class="span1">
-									<h4>Cap <%= capitulo.cap %></h4>
-								</div>
-								<div class="span3">
-									<h4>Titulo <%= capitulo.titulo %></h4>
-								</div>
-								<div class="span3">
-									<div id="example" class="modal hide fade in" style="display: none; ">  
-										<div class="modal-header">  
-											<a class="close" data-dismiss="modal">×</a>  
-											<h3><%= capitulo.titulo %> </h3>  
-										</div>  
-										<div class="modal-body">  
-											<h4><a href="<%= capitulo.link  %>" target="_blank"> <%= capitulo.link  %></a></h4>
-										</div>  
-										<div class="modal-footer">  
-											<a href="#" class="btn btn-success">Call to action</a>  
-											<a href="#" class="btn" data-dismiss="modal">Cerrar</a>  
-										</div>  
-									</div>  
-									<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>  
-								</div>
-							</div>
-						<% end %>	
-	    			<% end %>	
-	    		</div>
-			<% end %>
-			<% if @series.capitulos.any?{ |c| c.temporada == 6 } %>
-	  		  	<div class="tab-pane" id="tab3">
-	      			<p>Dentro Temporada 3.</p>
-	      			<% for capitulo in @series.capitulos %>   
-	  					<% if capitulo.temporada == 6 %>
-	 						<div class="row-fluid">
-		  						<div class="span1">
-									<h4>Temp <%=capitulo.temporada %></h4>
-								</div>
-								<div class="span1">
-									<h4>Cap <%= capitulo.cap %></h4>
-								</div>
-								<div class="span3">
-									<h4>Titulo <%= capitulo.titulo %></h4>
-								</div>
-								<div class="span3">
-									<div id="example" class="modal hide fade in" style="display: none; ">  
-										<div class="modal-header">  
-											<a class="close" data-dismiss="modal">×</a>  
-											<h3><%= capitulo.titulo %> </h3>  
-										</div>  
-										<div class="modal-body">  
-											<h4><a href="<%= capitulo.link  %>" target="_blank"> <%= capitulo.link  %></a></h4>
-										</div>  
-										<div class="modal-footer">  
-											<a href="#" class="btn btn-success">Call to action</a>  
-											<a href="#" class="btn" data-dismiss="modal">Cerrar</a>  
-										</div>  
-									</div>  
-									<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>  
-								</div>
-							</div>
-						<% end %>	
-	    			<% end %>	
-	    		</div>
-			<% end %>				
-		</div>
+					  	<% end %>
+	  				<% end %>
+	  				</div>
+	  			<% end %>  
+ 		</div>
 	</div>
 </div>
 
-				<% if @series.capitulos.size > 0 %>  
-  					<h2> Capitulos </h2>
-					<div class="row-fluid">
-							<div class="span3">
-								<h3> Temporada </h3>
-							</div>
-							<div class="span2">
-								<h3> Episodio </h3>
-							</div>
-							<div class="span2">
-								<h3> Título </h3>
-							</div>
-							<div class="span1">
-								<h3> Links </h3>
-							</div>
-					</div>
-  					<% for capitulo in @series.capitulos %>  
-    					<div class="row-fluid">
-							<div class="span1">
-								<h4><%=capitulo.temporada %></h4>
-							</div>
-							<div class="span1">
-								<h4><%= capitulo.cap %></h4>
-							</div>
-							<div class="span3">
-								<h4><%= capitulo.titulo %></h4>
-							</div>
-							<div class="span3">
-									<div id="example" class="modal hide fade in" style="display: none; ">  
-										<div class="modal-header">  
-											<a class="close" data-dismiss="modal">×</a>  
-											<h3><%= capitulo.titulo %> </h3>  
-										</div>  
-										<div class="modal-body">  
-											<h4><a href="<%= capitulo.link  %>" target="_blank"> <%= capitulo.link  %></a></h4>
-										</div>  
-										<div class="modal-footer">  
-											<a href="#" class="btn btn-success">Call to action</a>  
-											<a href="#" class="btn" data-dismiss="modal">Cerrar</a>  
-										</div>  
-									</div>  
-								<p><a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Mostrar Links</a></p>  
-							</div>
-						</div>
-  					<% end %>  
-				<% end %>
-			</div>
-		</div>
+
 
 <div class="row-fluid">
 	<div class="span10 offset1">      
