@@ -1,24 +1,57 @@
 <p id="notice"><%= notice %></p>
 
-<div class="row-fluid" id="serie_show">
-   <div class="span12" > 
-		<div class="row-fluid">
-			<div class="span5 offset1">
-				<img id="caratula" src="<%=  @series.caratula %>" alt="Caratula Serie" height="400px" width="400px">
-			</div>
-			<div class="span6">
-      		<h1><%= @series.nombre %></h1>
-   	   	<h3> Sinopsis: </h3> 
-   	  		<h5><%= @series.sinopsis %> </h5>
-				<h3>Director: </h3> 
-				<h4><%= @series.director %></h4>
-				<h3>Guionista: </h3> 
-		 		<h4><%= @series.guionista %></h4>
-				<h3>Productores:  </h3> 
-				<h4><%= @series.productores %></h4>
-			</div>
-		</div>
-		<div class="row-fluid">
+<div class="row-fluid" id="pelicula_show" align ="center">
+	<h1><%= @series.nombre %></h1>
+</div>
+
+<div class="row-fluid">
+	<div class="span4 offset1">
+		<img id="caratula" src="<%=  @series.caratula %>" alt="Caratula Serie" height="400px" width="400px">
+    </div>
+    <div class="span7">
+    	<div class="row-fluid">
+   	  	    <div class="span2">
+   	  	    	<h3> Sinopsis: </h3> 
+   	  	    </div>
+   	  	</div>
+   	  	<div class="row-fluid">
+   	  	    <div class="span5 offset1">
+   	  	    	<p><%= @series.sinopsis %> </p>
+		    </div>
+   	  	 </div>
+   	   	 <div id="myCollapsibleExample">
+   	  	 	<a href="#more_info" data-toggle="collapse"> M&aacutes informaci&oacuten</a>
+   	  	 </div>  
+		 <div id="more_info" class="collapse">
+		 	<div class="row-fluid">
+   	  	   		<div class="span2">
+   	  	   			<h4>Director: </h4> 
+   	  	   		</div>
+   	  	   		<div class="span4">
+   	  	   			<br><p><%= @series.director %> </p>
+		  	 	</div>
+   	  	 	</div> 
+   	  	 	<div class="row-fluid">
+   	  	   		<div class="span2">
+   	  	   			<h4> Guionista: </h4> 
+   	  	   		</div>
+   	  	   		<div class="span4">
+   	  	   			<br><p><%= @series.guionista %> </p>
+		  	 	</div>
+   	  	 	</div> 
+   	  	 	<div class="row-fluid">
+   	  	   		<div class="span2">
+   	  	   			<h4> Productores: </h4> 
+   	  	   		</div>
+   	  	   		<div class="span4">
+   	  	   			<br><p><%= @series.productores %> </p>
+		  	 	</div>
+   	  	 	</div> 
+		</div> 
+	</div>
+</div>
+
+	<div class="row-fluid">
 			<div class="span5 offset1">
 				<h2>Nuevo Capitulo</h2>   
 				<%= form_for [@series, Capitulo.new] do |f| %>
@@ -78,34 +111,43 @@
 				<% end %>
 			</div>
 		</div>
-       <div class="row-fluid">
-          <div class="span6" >
-             <% if @series.coments.size > 0 %>
-                <h2>Comments</h2>
-                <% for coment in @series.coments %>
-                   <div class="span3 offset1">
-                      <h4><%= coment.name %></h4>
-                   </div>
-                   <div class="span3 offset3">
-                      <h4><%= coment.content %></h4>
-                   </div>
-                <% end %>
-             <% end %>
-           </div>
-           <div class="span6">
-               <h2>Nuevo Comentario</h2>
-               <%= form_for [@series, Coment.new] do |f| %>
-                  <p><%= f.hidden_field :name, :value => current_user.name  %>  </p>
-                  <p><%= f.text_area :content, :rows => 10 %></p>
-                  <p><%= f.submit %></p>
-               <% end %>
-          </div>
-       </div>
 
+<div class="row-fluid">
+	<div class="span10 offset1">      
+	    <h2>Comentarios</h2>
+	    <% if @series.coments.size > 0 %>  
+	        <% for coment in @series.coments %>
+	            <div class="row-fluid"> 
+	            	<div class="span4 offset1"> 
+						<h4><%= coment.name %></h4> 
+			        </div>
+			    </div>
+			    <div class="row-fluid"> 
+					<div class="span8 offset2">
+						<p><%= coment.content %></p> 
+					</div>
+				</div>
+			<% end %>  
+		<% else %>
+			 <h5> ¡ An&iacutemate a escribir el primer comentario de esta serie!</h5>
+		<% end %>  
+	</div>
+</div>
 
-       <div class="span1 offset2">
-      	<%= link_to 'Edit', edit_series_path(@series) %> |
+<div class="row-fluid">      
+	<div class="span8 offset1"> 
+    	<h2>Nuevo Comentario</h2>  
+         <%= form_for [@series, Coment.new] do |f| %>
+         	<p><%= f.hidden_field :name, :value => current_user.name  %>  </p>
+            <p><%= f.text_area :content, :rows => 10 %></p>
+            <p><%= f.submit %></p>
+         <% end %>
+	</div>
+</div> 
+
+<div class="row-fluid">    
+	<div class="span1 offset2">
+    	<%= link_to 'Edit', edit_series_path(@series) %> |
 		<%= link_to 'Back', series_index_path %>
-
-      </div>
-   </div>
+    </div>
+</div>
