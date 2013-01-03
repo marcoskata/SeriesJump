@@ -16,8 +16,6 @@ class FollowingsController < ApplicationController
   def destroy
     @idu = current_user.followings.where(idu: params[:id] )[0].idu
     @user = User.find(@idu)
-    puts "llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllalala"
-    puts @user.name
     @nombre = current_user.followings.where(idu: params[:id] )[0].name
     current_user.followings.where(idu: params[:id]).delete
     @user.followers.where(idu: current_user.id).delete
