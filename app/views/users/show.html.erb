@@ -7,7 +7,8 @@
 }); 
         }); 
     </script> 
-
+<div class="row-fluid">
+<div class="span4 offset2">
 <h3>User Profile</h3>
 <p>Name: <%= @user.name %></p>
 <% if  @user.email != "" %>
@@ -32,10 +33,11 @@
       <% end %>
   <% end %>
 <% end %>
-
+</div>
+</div>
 <div class="row-fluid">
 	   <div class="span4 offset2">
-	   		<h1> Series seguidas de <%= @user.name %> </h1> 
+	   		<h2> Series seguidas de <%= @user.name %> </h2> 
 		</div>
 	</div>
 		
@@ -56,20 +58,8 @@
    					</ul>
       			</div>
 	        	<div class="span2">
-	      			<%= link_to 'Show', serie %>
-	    			<%= link_to 'Edit', edit_series_path(serie) %>
 	    			<% if current_user.admin? %>
-					<%= button_to 'Destroy', serie, confirm: 'Are you sure?', method: :delete %>
-					<% end %> 
-					<% if current_user.seguirs.where(idp: serie.id ).exists? %> 
-					<p> Ya la vistes </p>
-					<%= button_to "No favorita", {:controller => :seguirs, :action => 'destroy', :id => serie.id}, class: "btn btn-danger" ,:method => :delete %> 
-					<% else %>
-	    				<%= form_for [current_user, Seguir.new] do |f| %>  
-	    					<p> <%= f.hidden_field :idp, :value => serie.id  %></p>  
-	    					<p> <%= f.hidden_field :name, :value => serie.nombre  %></p>
-							<p><%= f.submit %></p>  
-						<% end %>
+						<%= button_to 'Destroy', serie, confirm: 'Are you sure?', method: :delete %>
 					<% end %>
 	      		</div>
    			</div>
@@ -79,7 +69,7 @@
 
 	<div class="row-fluid">
 	   <div class="span4 offset2">
-	   		<h1> Peliculas favoritas de <%= @user.name %></h1> 
+	   		<h2> Peliculas favoritas de <%= @user.name %></h2> 
 		</div>
 	</div>
 
@@ -99,21 +89,8 @@
    					</ul>
       			</div>
 	        	<div class="span2">
-	      		<%= link_to 'Show', pelicula %>
-    		<%= link_to 'Edit', edit_pelicula_path(pelicula) %>
     		<% if current_user.admin? %>
     		     <%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
     		<% end %> 
-    		<% if current_user.seguirps.where(idp: pelicula.id ).exists? %> 
-    			<p> Ya la vistes </p>
-    			<%= button_to "No favorita", {:controller => :seguirps, :action => 'destroy', :id => pelicula.id}, class: "btn btn-danger" ,:method => :delete %> 
-    		<% else %>
-	    				<%= form_for [current_user, Seguirp.new] do |f| %>  
-	    					<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
-	    					<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
-							<p><%= f.submit %></p>  
-						<% end %>
-					<% end %>
-	      		</div>
    			</div>
 		<% end %> 
