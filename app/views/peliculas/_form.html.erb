@@ -56,7 +56,9 @@
 		<div class="field">
 		    <h4><%= f.label :caratula %></h4>
 		  	<img src="<%=  @pelicula.caratula %>" alt="Caratula Pelicula" height="200" width="70" class="img-rounded">
-		    <%= f.text_field :caratula, :class => "input-xxlarge" %>
+				<div class="row-fluid" id="url_edit">
+			    	<%= f.text_field :caratula, :class => "input-xxlarge" %>
+				</div>
 		</div>
 		<div class="actions">
 			<br>
