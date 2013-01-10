@@ -4,9 +4,12 @@
     <% end %>
 <% end %>
 
-
-<h3>followings</h3>
-<% current_user.followings.each do |user| %>
-   <p>- <%= link_to user.name, User.find(user.idu), :controller => "users" %></p>
-	<br>
-<% end %>
+<div class="row-fluid">
+<div class="span5 offset2">
+	<h1>followings</h1>
+	<% current_user.followings.each do |user| %>
+	<p>- <%= link_to user.name, User.find(user.idu), :controller => "users" %></p>
+		<br>
+	<% end %>
+	</div>
+</div>
