@@ -1,0 +1,1 @@
+{options : { "create" : "objectlabs-system" }, indexes:[{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "series_jump_development.objectlabs-system", "name" : "_id_" }]}
