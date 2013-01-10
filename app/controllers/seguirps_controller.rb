@@ -10,8 +10,7 @@ class SeguirpsController < ApplicationController
   end
   
   def index
-    #@seguirps = Seguirp.all
-    @seguirps = Seguirp.paginate(:page => params[:page], :per_page => 5)
+    @seguirps = Seguirp.all
   end
   
   def destroy
