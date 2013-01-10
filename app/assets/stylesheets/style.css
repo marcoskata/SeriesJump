@@ -57,6 +57,11 @@ img#caratula2 {
 	
 }
 
+.container{
+   background-color: LightGrey;
+	border-radius: 20px;
+}
+
 img#caratula {
 	border-radius: 10px;
 	

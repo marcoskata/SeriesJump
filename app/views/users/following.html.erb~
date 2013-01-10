@@ -1,0 +1,13 @@
+<% flash.each do |name, msg| %>
+	<% if msg.is_a?(String) %>
+    	<%= content_tag :div, msg, :id => "flash_#{name}" %>
+    <% end %>
+<% end %>
+
+
+<h3>followings</h3>
+<% User.random()%>
+<% current_user.followings.each do |user| %>
+   <p>- <%= link_to user.name, User.find(user.idu), :controller => "users" %></p>
+	<br>
+<% end %>
