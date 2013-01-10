@@ -14,6 +14,7 @@
 	  <%= button_to "Unfollow", {:controller => :followings, :action => 'destroy', :id => user.id}, :method => :delete %> 
   <% else %>
   <%= user.name %>
+  
    <%= form_for [current_user, Following.new], :html => { :id => "form-1" } do |f| %>  
       <% if current_user.id != user.id %>
          <p> <%= f.hidden_field  :idu, :value => user.id  %></p>
@@ -32,5 +33,6 @@
 	<%= button_to 'Destroy',user , confirm: 'Are you sure?', method: :delete %>
   <% end %>
 <% end %>
+
 </li>
 
