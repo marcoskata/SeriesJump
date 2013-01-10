@@ -1,48 +1,50 @@
 <%= form_for(@series) do |f| %>
-  <% if @series.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@series.errors.count, "error") %> prohibited this series from being saved:</h2>
-
-      <ul>
-      <% @series.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :id %><br />
-    <%= f.text_field :id %>
-  </div>
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre %>
-  </div>
-  <div class="field">
-    <%= f.label :sinopsis %><br />
-    <%= f.text_field :sinopsis %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :director %><br />
-    <%= f.text_field :director %>
-  </div>
-  <div class="field">
-    <%= f.label :guionista %><br />
-    <%= f.text_field :guionista %>
-  </div>
-  <div class="field">
-    <%= f.label :productores %><br />
-    <%= f.text_field :productores %>
-  </div>
-  <div class="field">
-    <%= f.label :caratula %><br />
-    <%= f.text_field :caratula %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+ 	<% if @series.errors.any? %>
+    	<div id="error_explanation">
+	      		<h2><%= pluralize(@series.errors.count, "error") %> prohibited this series from being saved:</h2>
+	      	<ul>
+	      		<% @series.errors.full_messages.each do |msg| %>
+	        		<li><%= msg %></li>
+	      		<% end %>
+	      	</ul>
+	    </div>
+  	<% end %>
+	<div class="row-fluid">
+		<div class="span11 offset1">
+	
+			<div class="field">
+		    	<h4><%= f.label :nombre %> </h4>
+		    	<%= f.text_field :nombre, :class => "input-xxlarge" %>
+			</div>
+		  
+		  	<div class="field">
+		  		<h4><%= f.label :sinopsis %></h4>
+		    	<%= f.text_field :sinopsis, :rows => 60, :class => "input-xxlarge" %>
+		  	</div>
+			
+	
+	 		<div class="field">
+			    <h4><%= f.label :director %></h4>
+			    <%= f.text_field :director, :class => "input-xlarge" %>
+			</div>
+			<div class="field">
+			    <h4><%= f.label :guionista %></h4>
+			    <%= f.text_field :guionista, :class => "input-xlarge" %>
+			</div>
+			<div class="field">
+			    <h4><%= f.label :productores %></h4>
+			    <%= f.text_field :productores, :class => "input-xlarge" %>
+			</div>
+			
+			<div class="field">
+			    <h4><%= f.label :caratula %></h4>
+			  	<img src="<%=  @series.caratula %>" alt="Caratula Serie" height="200" width="70" class="img-rounded">
+			    <%= f.text_field :caratula, :class => "input-xxlarge" %>
+			</div>
+		
+		 	<div class="actions">
+	    		<%= f.submit %>
+	  		</div>
+  		</div>
+	</div>
 <% end %>
