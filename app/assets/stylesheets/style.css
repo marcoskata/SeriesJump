@@ -40,6 +40,16 @@ h1, h2, h3, h4, h5, a#Jump.brand, a {
 	
 }
 
+img#caratula2 {
+	border-radius: 10px;
+	
+}
+
+
+.caratula_novedades {
+	text-align: center
+
+}
 
 #caratula {
 	padding-top: 20px;

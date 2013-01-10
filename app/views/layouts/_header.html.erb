@@ -26,6 +26,7 @@
 		                 	  	
 		                 	</ul>
 			   			</li>
+			   			
 			   			<li class="dropdown">
 	               			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Peliculas<b class="caret"></b></a>
 	               			<ul class="dropdown-menu">
@@ -37,6 +38,8 @@
 		                 	  	
 		                 	</ul>
 			   			</li>
+			   			<li><a href="/usuarios">Usuarios</a></li>
+		            
 			  </ul>
            
             <ul class="nav pull-right">  
@@ -65,7 +68,6 @@
                  	  <li><a href="/follower">Seguidores</a></li>
                  	  <li><a href="/following">Siguiendo</a></li>
                  	  <li><%= link_to "Tu perfil", User.find(current_user.id), :controller => "users" %> </li>
-                 	  <li> <%= link_to('Logout', signout_path) %> </li>
                  	  <li class="divider"></li>
                  	  <li class="nav-header">Salir</li>
                  	  <li> <%= link_to('Logout', signout_path) %> </li>

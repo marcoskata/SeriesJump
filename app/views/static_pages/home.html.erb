@@ -13,20 +13,27 @@
            		<ul class="nav nav-list"> 
            		
            			<li><h6>NOVEDADES</h6></li>
+           			<li></li>
            			<li class="nav-header">&Uacuteltima pelicula añadida</li>
-           			<li><a href="/series">Series </a></li>
-		            	<li><a href="/users/<%=current_user._id%>/seguirs">Series seguidas</a></li>  
-		            <li><a href="/peliculas">Peliculas</a></li>
-		            <li><a href="/users/<%=current_user._id%>/seguirps">Peliculas favoritas</a></li>
-						<li><a href="/usuarios">Usuarios</a></li>
-		            <li class="nav-header">&Uacuteltimas Novedades</li>
-					<li>Series</li>  
-					<li><a href="/series/<%= Series.last.id %>"> <%= Series.last.nombre %></a></li>  
-		            <li>Pel&iacuteculas</li>
-		            <li><a href="/peliculas/<%= Pelicula.last.id %>"> <%= Pelicula.last.nombre %></a></li>  
-		            <li>Usuarios</li>
-		            <li><a href="/users/<%= User.last.id %>"> <%= User.last.name %></a></li>    
-           		</ul>  
+           			<li><a href="/peliculas/<%= Pelicula.last.id %>"> <%= Pelicula.last.nombre %></a>
+           				<div class="caratula_novedades">
+           					<img id="caratula2" src="<%= Pelicula.last.caratula %>" alt="Caratula Serie" height="80" width="80">
+           				</div>
+           			</li>  
+		            <li><br></li>
+           			<li class="nav-header">&Uacuteltima serie añadida</li>
+           			<li><a href="/series/<%= Series.last.id %>"> <%= Series.last.nombre %></a>
+           				<div class="caratula_novedades">
+           					<img id="caratula2" src="<%= Series.last.caratula %>" alt="Caratula Serie" height="80" width="80">
+           				</div>
+           			
+           			</li>  
+		             <li><br></li>
+		            <li class="nav-header">&Uacuteltimo  usuario registrado</li>
+           			<li><a href="/users/<%= User.last.id %>"> <%= User.last.name %></a>	</li>    
+           			
+           			
+          			</ul>  
        		</div><!--/.well -->  
       	</div><!--/span-->  
        
