@@ -20,6 +20,7 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem "kaminari"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -48,6 +49,11 @@ gem "factory_girl_rails", ">= 4.1.0", :group => [:development, :test]
 gem "omniauth", ">= 1.1.1"
 gem "omniauth-twitter"
 gem "omniauth-facebook"
+gem "omniauth-google"
 gem "quiet_assets", ">= 1.0.1", :group => :development
 gem "therubyracer", ">= 0.10.2", :group => :assets, :platform => :ruby
 gem "faraday", ">= 0.6.1"
+gem "heroku"
+gem "rb-readline"
+gem "will_paginate_mongoid"
+gem 'mongoid_alphadog'
