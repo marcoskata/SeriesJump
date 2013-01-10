@@ -8,41 +8,41 @@
         }); 
     </script> 
 <div class="row-fluid">
-<div class="span4 offset2">
-<h3>User Profile</h3>
-<p>Name: <%= @user.name %></p>
-<% if  @user.email != "" %>
-   <p>Email: <%= @user.email %></p>
-<% end %>
-   
-  <% if current_user.followings.where(idu: @user.id ).exists? %> 
-	  <%= button_to "Unfollow", {:controller => :followings, :action => 'destroy', :id => @user.id}, :method => :delete %> 
-<% else %>
-<%= form_for [current_user, Following.new], :html => { :id => "form-1" } do |f| %>  
-      <% if current_user.id != @user.id %>
-         <p> <%= f.hidden_field  :idu, :value => @user.id  %></p>
-         <p> <%= f.hidden_field :name, :value => @user.name  %></p>  
-      <% end %>
-  <% end %>
-  
-  <%=  form_for  [@user, Follower.new], :html => { :id => "form-2" } do |h| %>  
-      <% if current_user.id != @user.id %>
-         <p> <%= h.hidden_field  :idu, :value => current_user.id  %></p>
-         <p> <%= h.hidden_field :name, :value => current_user.name  %></p>  
-         <p> <%= h.submit Seguir%> </p>  
-      <% end %>
-  <% end %>
-<% end %>
-</div>
+	<div class="span4 offset2">
+		<h3>User Profile</h3>
+		<p>Name: <%= @user.name %></p>
+		<% if  @user.email != "" %>
+		   <p>Email: <%= @user.email %></p>
+		<% end %>
+		   
+		  <% if current_user.followings.where(idu: @user.id ).exists? %> 
+			  <%= button_to "Unfollow", {:controller => :followings, :action => 'destroy', :id => @user.id}, :method => :delete %> 
+		<% else %>
+		<%= form_for [current_user, Following.new], :html => { :id => "form-1" } do |f| %>  
+		      <% if current_user.id != @user.id %>
+		         <p> <%= f.hidden_field  :idu, :value => @user.id  %></p>
+		         <p> <%= f.hidden_field :name, :value => @user.name  %></p>  
+		      <% end %>
+		  <% end %>
+		  
+		  <%=  form_for  [@user, Follower.new], :html => { :id => "form-2" } do |h| %>  
+		      <% if current_user.id != @user.id %>
+		         <p> <%= h.hidden_field  :idu, :value => current_user.id  %></p>
+		         <p> <%= h.hidden_field :name, :value => current_user.name  %></p>  
+		         <p> <%= h.submit Seguir%> </p>  
+		      <% end %>
+		  <% end %>
+		<% end %>
+	</div>
 </div>
 <div class="row-fluid">
-	   <div class="span10 offset2">
+	<div class="span10 offset2">
 		<div id="myCollapsibleExample">
-        <h2><a href="#more_info" data-toggle="collapse">Series seguidas de <%= @user.name %></a></h2>
-      </div>
-      <div id="more_info" class="collapse">
-		<% @user.seguirs.each do |seguirp| %>
-	    <% serie = Series.find (id = seguirp.idp) %>
+        	<h2><a href="#more_info" data-toggle="collapse">Series seguidas de <%= @user.name %></a></h2>
+      	</div>
+      	<div id="more_info" class="collapse">
+			<% @user.seguirs.each do |seguirp| %>
+		    <% serie = Series.find (id = seguirp.idp) %>
 			<br>
 			<br>
    			<div class="row-fluid" id="peli_list">
