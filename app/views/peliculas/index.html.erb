@@ -50,7 +50,7 @@
 	    		<%= form_for [current_user, Seguirp.new] do |f| %>  
 	    			<p> <%= f.hidden_field :idp, :value => pelicula.id  %></p>  
 	    			<p> <%= f.hidden_field :name, :value => pelicula.nombre  %></p>
-					<p><%= f.submit %></p>  
+					<p><%= f.submit 'Favorita' %></p>  
 				<% end %>
 			<% end %>
 	    </div>
