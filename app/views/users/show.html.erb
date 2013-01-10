@@ -46,15 +46,11 @@
 			<br>
 			<br>
    			<div class="row-fluid" id="peli_list">
-        		<div class="span1 offset2">
+        			<div class="span1 offset2">
    					<img id="caratula" src="<%= serie.caratula %>" alt="Caratula Pelicula" height="100" width="100">
       			</div>
-      			<div class="span5">
+      			<div class="span7">
    					<h2><%= link_to serie.nombre, serie %></h2>
-   					<ul>
-   						<li>Sinopsis : <%= serie.sinopsis %> </li>
-   						<li>Director : <a><%= serie.director %></a></li>
-   					</ul>
       			</div>
 	        	<div class="span2">
 	    			<% if current_user.admin? %>
@@ -75,23 +71,18 @@
        	<div id="more_info2" class="collapse">
 				<% @user.seguirps.each do |seguirp| %>
 	    		<% pelicula = Pelicula.find (id = seguirp.idp) %>
-				<br>
-				<br>
    			<div class="row-fluid" id="peli_list">
-        		<div class="span1 offset2">
+        			<div class="span1 offset2">
    					<img id="caratula" src="<%= pelicula.caratula %>" alt="Caratula Pelicula" height="100" width="100">
       			</div>
-      			<div class="span5">
+      			<div class="span7">
    					<h2><%= link_to pelicula.nombre, pelicula %></h2>
-   					<ul>
-   						<li>Saga : <%= pelicula.saga %> </li>
-   						<li>Trailer : <a href="<%= pelicula.trailers  %>"> <%= pelicula.trailers  %></a></li>
-   					</ul>
       			</div>
 	        	<div class="span2">
     		<% if current_user.admin? %>
     		     <%= button_to 'Destroy', pelicula, confirm: 'Are you sure?', method: :delete %>
     		<% end %> 
    			</div>
+		 </div>
 		<% end %>
 	</div>
