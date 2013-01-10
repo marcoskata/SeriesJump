@@ -19,10 +19,12 @@
 		            <li><a href="/users/<%=current_user._id%>/seguirps">Peliculas favoritas</a></li>
 						<li><a href="/usuarios">Usuarios</a></li>
 		            <li class="nav-header">&Uacuteltimas Novedades</li>
-					<li><a href="/series">Series</a></li>  
-		            <li><a href="/peliculas">Pel&iacuteculas</a></li>  
-		            <li><a href="/usuarios">Usuarios</a></li>  
-		            <li><a href="/peliculas">lalala</a></li>  
+					<li>Series</li>  
+					<li><a href="/Series"> <%= Series.last.nombre %></a></li>  
+		            <li>Pel&iacuteculas</li>
+		            <li><a href="/peliculas"> <%= Pelicula.last.nombre %></a></li>  
+		            <li>Usuarios</li>
+		            <li><a href="/peliculas"> <%= User.last.name %></a></li>    
            		</ul>  
        		</div><!--/.well -->  
       	</div><!--/span-->  
