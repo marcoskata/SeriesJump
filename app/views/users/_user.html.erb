@@ -10,10 +10,31 @@
 <li>
   
   <% if current_user.followings.where(idu: user.id ).exists? %> 
-    <p> <h3> <%= link_to user.name, user %>  </h3>
+    <p> <h3> <%= link_to user.name, user %>  
+    
+    <% if user.provider == "google" %>	
+			<img src="/img/logo_g.png" alt="Smiley face" height="42" width="42"> 
+		<% end %>
+		<% if user.provider == "facebook" %>
+			<img src="/img/logo_f.png" alt="Smiley face" height="42" width="42"> 
+  		<% end %>   
+  		<% if user.provider == "twitter" %>
+			<img src="/img/logo_t.png" alt="Smiley face" height="42" width="42"> 
+    	<% end %></h3>
+    	
 	  <%= button_to "Unfollow", {:controller => :followings, :action => 'destroy', :id => user.id}, :method => :delete %> </p>
   <% else %>
- <p> <h3> <%= user.name %> </h3>
+ <p> <h3> <%= user.name %> 
+ 
+		<% if user.provider == "google" %>	
+			<img src="/img/logo_g.png" alt="Smiley face" height="42" width="42"> 
+		<% end %>
+		<% if user.provider == "facebook" %>
+			<img src="/img/logo_f.png" alt="Smiley face" height="42" width="42"> 
+  		<% end %>   
+  		<% if user.provider == "twitter" %>
+			<img src="/img/logo_t.png" alt="Smiley face" height="42" width="42"> 
+    	<% end %></h3>
   
    <%= form_for [current_user, Following.new], :html => { :id => "form-1" } do |f| %>  
       <% if current_user.id != user.id %>

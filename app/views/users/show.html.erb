@@ -9,11 +9,23 @@
     </script> 
 <div class="row-fluid">
 	<div class="span4 offset2">
-		<h3>User Profile</h3>
+		<h3>User Profile
+		<% if @user.provider == "google" %>	
+			<img src="/img/logo_g.png" alt="Smiley face" height="42" width="42"> 
+			<p> Logueado con Google </p>  
+		<% end %>
+		<% if @user.provider == "facebook" %>
+			<img src="/img/logo_f.png" alt="Smiley face" height="42" width="42"> 
+  		<% end %>   
+  		<% if @user.provider == "twitter" %>
+			<img src="/img/logo_t.png" alt="Smiley face" height="42" width="42"> 
+    	<% end %></h3>	
+		
 		<p>Name: <%= @user.name %></p>
 		<% if  @user.email != "" %>
 		   <p>Email: <%= @user.email %></p>
 		<% end %>
+		
 		   
 		  <% if current_user.followings.where(idu: @user.id ).exists? %> 
 			  <%= button_to "Unfollow", {:controller => :followings, :action => 'destroy', :id => @user.id}, :method => :delete %> 
