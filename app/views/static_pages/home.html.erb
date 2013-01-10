@@ -21,11 +21,11 @@
 						<li><a href="/usuarios">Usuarios</a></li>
 		            <li class="nav-header">&Uacuteltimas Novedades</li>
 					<li>Series</li>  
-					<li><a href="/Series"> <%= Series.last.nombre %></a></li>  
+					<li><a href="/series/<%= Series.last.id %>"> <%= Series.last.nombre %></a></li>  
 		            <li>Pel&iacuteculas</li>
-		            <li><a href="/peliculas"> <%= Pelicula.last.nombre %></a></li>  
+		            <li><a href="/peliculas/<%= Pelicula.last.id %>"> <%= Pelicula.last.nombre %></a></li>  
 		            <li>Usuarios</li>
-		            <li><a href="/peliculas"> <%= User.last.name %></a></li>    
+		            <li><a href="/users/<%= User.last.id %>"> <%= User.last.name %></a></li>    
            		</ul>  
        		</div><!--/.well -->  
       	</div><!--/span-->  

@@ -1,0 +1,1 @@
+{options : { "create" : "peliculas", "capped" : false, "autoIndexId" : true }, indexes:[{ "v" : 1, "key" : { "_id" : 1 }, "ns" : "series_jump_development.peliculas", "name" : "_id_" }]}
