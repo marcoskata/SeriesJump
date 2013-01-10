@@ -53,14 +53,27 @@
 
 <div class="row-fluid">
 	<div class="span5 offset1">
-		<h2>Nuevo Capitulo</h2>   
-		<%= form_for [@series, Capitulo.new] do |f| %>
-			<h3><%= f.text_field :cap %></h3>
-	 		<h3><%= f.label :titulo %> <%= f.text_field :titulo %></h3>
-  			<h3><%= f.label :temporada %> <%= f.text_field :temporada %></h3>
-			<h3><%= f.label :link %> <%= f.text_field :link %></h3>  
- 	 		<h3><%= f.submit %></h3>  
-		<% end %>
+   <br>
+		<div id="add_link" class="modal hide fade in" style="display: none; ">
+             <div class="modal-header">
+                   <a class="close" data-dismiss="modal">×</a>
+                      <h3><%= @series.nombre %> </h3>
+                </div>
+                <div class="modal-body">
+                  <%= form_for [@series, Capitulo.new] do |f| %>
+	       	   		<h3><%= f.text_field :cap %></h3>
+   	      	 		<h3><%= f.label :titulo %> <%= f.text_field :titulo %></h3>
+      	    			<h3><%= f.label :temporada %> <%= f.text_field :temporada %></h3>
+         	 			<h3><%= f.label :link %> <%= f.text_field :link %></h3>
+          				<h3><%= f.submit %></h3>
+						<% end %>
+              </div>
+                <div class="modal-footer">
+                    <a class="close btn" data-dismiss="modal">Salir</a>
+                </div>
+            </div>
+          <p><a data-toggle="modal" href="#add_link" class="btn btn-primary btn-large">¡ Agrega un nuevo capitulo !</a></p>
+       </div>
 	</div>
 </div>		
 
@@ -79,7 +92,7 @@
 	  					<%  temp_max = c.temporada %>
 	  				<% end %>
 	    		<% end %>
-    			<h1>TEMPORADAS TOTALES = <%= temp_max %> </h1>
+    			<h1> TEMPORADAS TOTALES = <%= temp_max %> </h1>
 	  			<% for i in 1..temp_max do %>
 		  			<% all_c = [] %>
 		  			<% @series.capitulos.select { |c| if c.temporada == i; all_c <<  c end  } %>
