@@ -1,4 +1,10 @@
-<h3>Todos los Usuarios</h3>
-<% @users.each do |user| %>
-  <%= render user %>
-<% end %>
+<div class="row-fluid">
+	<div class="span5 offset2">
+		<h1>Todos los Usuarios</h1>
+		<br>
+		<br>
+		<% @users.each do |user| %>
+			<%= render user %>
+		<% end %>
+	</div>
+</div>
