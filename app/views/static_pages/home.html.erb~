@@ -40,9 +40,7 @@
             		</div>
             		<br>
 				 	<div class="row-fluid">
-						<% a = Pelicula.count  %>
-						<% x = Pelicula.all  %>
-						<%= button_to Pelicula.find(x[rand(a)].id).nombre, Pelicula.find(x[rand(a)].id), :controller => "Peliculas"%>
+						<a class="btn btn-success btn-large" href="/peliculas"> Mira algunas de las que tenemos</a>
 					</div>
 				</div>
 				<div class="span4 offset1" id="pelis_init">
