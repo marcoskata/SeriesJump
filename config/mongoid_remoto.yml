@@ -1,0 +1,22 @@
+development:
+  sessions:
+    default:
+      uri: mongodb://alberto:ma12345678@dbh61.mongolab.com:27617/series_jump_development
+      options:
+        consistency: :strong
+        raise_not_found_error: false 
+test:
+  sessions:
+    default:
+      uri: mongodb://alberto:ma12345678@dbh61.mongolab.com:27617/series_jump_test
+      options:
+        consistency: :strong
+        raise_not_found_error: false 
+production:
+  sessions:
+    default:
+      uri: mongodb://alberto:ma12345678@dbh61.mongolab.com:27617/series_jump_development
+      options:
+        skip_version_check: true
+        safe: true
+        raise_not_found_error: false 
